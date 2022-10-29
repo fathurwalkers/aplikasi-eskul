@@ -91,14 +91,16 @@ class BackController extends Controller
     public function logout(Request $request)
     {
         $cek_logout_request = $request->logoutrequest;
-        switch ($cek_logout_request) {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        switch ($users->login_level) {
             case 'admin':
                 $users = session('data_login');
                 $request->session()->forget(['data_login']);
                 $request->session()->flush();
                 return redirect()->route('login-admin')->with('status', 'Anda telah logout!');
                 break;
-            case 'client':
+            case 'user':
                 $users = session('data_login');
                 $request->session()->forget(['data_login']);
                 $request->session()->flush();
