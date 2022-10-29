@@ -21,9 +21,11 @@ class CreateSiswasTable extends Migration
 
             $table->unsignedBigInteger('login_id')->nullable();
             $table->unsignedBigInteger('kelas_id')->nullable();
+            $table->unsignedBigInteger('eskul_id')->nullable();
 
             $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
+            $table->foreign('eskul_id')->references('id')->on('eskul')->onDelete('cascade');
 
             $table->timestamps();
         });
