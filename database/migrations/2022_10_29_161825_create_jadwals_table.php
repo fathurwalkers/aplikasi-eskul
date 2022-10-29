@@ -10,6 +10,15 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id();
+
+            $table->string('jadwal_tempat')->nullable();
+            $table->string('jadwal_keterangan')->nullable();
+            $table->dateTime('jadwal_waktu')->nullable();
+
+            $table->unsignedBigInteger('eskul_id')->nullable();
+
+            $table->foreign('eskul_id')->references('id')->on('eskul');
+
             $table->timestamps();
         });
     }
