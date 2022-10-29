@@ -23,7 +23,7 @@ class GenerateController extends Controller
         $kelas = Kelas::all()->toArray();
         $eskul = Eskul::all()->toArray();
 
-        for ($i=0; $i < 25; $i++) {
+        for ($i=0; $i < 40; $i++) {
             $kelas_random = Arr::random($kelas);
             $eskul_random = Arr::random($eskul);
             $siswa = new Siswa;
@@ -100,7 +100,7 @@ class GenerateController extends Controller
             "GTT",
         ];
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 15; $i++) {
             $eskul_random = Arr::random($eskul);
             $jabatan_organik_random = Arr::random($array_jabatan_organik);
             $pembina = new Pembina;
