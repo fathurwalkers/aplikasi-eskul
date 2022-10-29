@@ -57,8 +57,10 @@
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
                                                             <button href="#"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat Kelas</button>
-                                                            {{-- <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button> --}}
+                                                            @if ($users->login_level == "admin")
+                                                            <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
+                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </td>
