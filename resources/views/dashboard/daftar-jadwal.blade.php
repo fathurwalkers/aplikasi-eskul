@@ -27,12 +27,102 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <h4>
-                                <b>
-                                    Daftar Jadwal Ekstrakulikuler
-                                </b>
-                            </h4>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <h4>
+                                    <b>
+                                        Daftar Jadwal Ekstrakulikuler
+                                    </b>
+                                </h4>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
+                                <button type="button" class="btn btn-md btn-info" data-toggle="modal"
+                                    data-target="#modaltambah">
+                                    Tambah Jadwal
+                                </button>
+                            </div>
                         </div>
+
+                        {{-- MODAL TAMBAH DATA JADWAL --}}
+                        <div class="modal fade" id="modaltambah" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabelLogout">
+                                            Tambah Jadwal
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="{{ route('tambah-jadwal') }}" method="POST">
+                                        @csrf
+                                        <div class="modal-body">
+
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Tempat Kegiatan</label>
+                                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                                            aria-describedby="emailHelp"
+                                                            placeholder="contoh : Gedung A SMADA" name="jadwal_tempat">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlSelect1">Ekstrakulikuler</label>
+                                                        <select class="form-control" id="exampleFormControlSelect1"
+                                                            name="eskul_id">
+
+                                                            @foreach ($eskul as $j)
+                                                                <option value="{{ $j->id }}">{{ $j->eskul_nama }}
+                                                                </option>
+                                                            @endforeach
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlTextarea1">Keterangan</label>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="jadwal_keterangan"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlTextarea1">Tanggal</label>
+                                                        <input type="date" class="form-control" id="exampleInputEmail1"
+                                                            aria-describedby="emailHelp"
+                                                             name="jadwal_tanggal">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlTextarea1">Waktu</label>
+                                                        <input type="time" class="form-control" id="exampleInputEmail1"
+                                                            aria-describedby="emailHelp"
+                                                             name="jadwal_waktu">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-info"
+                                                data-dismiss="modal">Batalkan</button>
+                                            <button type="submit" class="btn btn-success">Tambah</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
                         <hr />
                         <div class="row">
                             <div class="table-responsive">
@@ -66,8 +156,8 @@
                                                             @if ($users->login_level == 'admin')
                                                                 <button href="#"
                                                                     class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                                <button href="#"
-                                                                    class="btn btn-sm btn-danger" data-toggle="modal"
+                                                                <button href="#" class="btn btn-sm btn-danger"
+                                                                    data-toggle="modal"
                                                                     data-target="#hapusModal{{ $item->id }}">Hapus</button>
                                                             @endif
                                                         </div>
@@ -76,23 +166,28 @@
                                             </tr>
 
                                             {{-- MODAL HAPUS  --}}
-                                            <div class="modal fade" id="hapusModal{{ $item->id }}" tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                            <div class="modal fade" id="hapusModal{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi Tindakan Penghapusan!</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi
+                                                                Tindakan Penghapusan!</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Apakah anda yakin ingin menghapus Data Jadwal Ekstrakulikuler <b>{{ $item->eskul->eskul_nama }}</b> di <b>{{ $item->jadwal_tempat }}</b> ini ?</p>
+                                                            <p>Apakah anda yakin ingin menghapus Data Jadwal Ekstrakulikuler
+                                                                <b>{{ $item->eskul->eskul_nama }}</b> di
+                                                                <b>{{ $item->jadwal_tempat }}</b> ini ?
+                                                            </p>
                                                         </div>
                                                         <div class="modal-footer">
 
-                                                            <form action="{{ route('hapus-jadwal', $item->id) }}" method="POST">
+                                                            <form action="{{ route('hapus-jadwal', $item->id) }}"
+                                                                method="POST">
                                                                 @csrf
                                                                 <input type="hidden" name="logoutrequest">
                                                                 <button type="button" class="btn btn-warning"
@@ -105,7 +200,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         @endforeach
                                     </tbody>
                                 </table>

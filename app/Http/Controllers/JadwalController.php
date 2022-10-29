@@ -15,6 +15,7 @@ use App\Models\Pembina;
 use App\Models\Siswa;
 use App\Models\Jadwal;
 use App\Models\Kelas;
+use Illuminate\Support\Carbon;
 
 class JadwalController extends Controller
 {
@@ -23,11 +24,44 @@ class JadwalController extends Controller
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
         $jadwal = Jadwal::all();
-        $siswa = Siswa::all();
+        $eskul = Eskul::all();
         return view('dashboard.daftar-jadwal', [
             'users' => $users,
             'jadwal' => $jadwal,
+            'eskul' => $eskul,
         ]);
+    }
+
+    public function tambah_jadwal(Request $request)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $jadwal = new Jadwal;
+        $eskul = Eskul::find(intval($request->eskul_id));
+
+        $jadwal_tempat = $request->jadwal_tempat;
+        $jadwal_keterangan = $request->jadwal_keterangan;
+        $jadwal_tanggal = $request->jadwal_tanggal;
+        $jadwal_waktu = $request->jadwal_waktu;
+        $jadwal_tanggal_waktu = Carbon::createFromFormat('d-m-Y H:i',Carbon::parse($request->jadwal_tanggal)->format('d-m-Y') . " " . $request->jadwal_waktu);
+
+        $save_jadwal = $jadwal->create([
+            "jadwal_tempat" => $jadwal_tempat,
+            "jadwal_keterangan" => $jadwal_keterangan,
+            "jadwal_waktu" => $jadwal_tanggal_waktu,
+            "eskul_id" => $eskul->id,
+            "created_at" => now(),
+            "updated_at" => now(),
+        ]);
+        $status_save = $save_jadwal->save();
+        switch ($status_save) {
+            case true:
+                return redirect()->route('daftar-jadwal')->with('status', 'Data Jadwal Berhasil ditambahkan.');
+                break;
+            case false:
+                return redirect()->route('daftar-jadwal')->with('status', 'Data Jadwal Gagal ditambahkan.');
+                break;
+        }
     }
 
     public function hapus_jadwal(Request $request, $id)
