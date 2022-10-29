@@ -55,9 +55,10 @@
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $item->pembina_nama }}</td>
                                                 <td>{{ $item->pembina_nip }}</td>
+                                                <td>{{ $item->pembina_jabatan_organik }}</td>
+                                                <td>{{ $item->pembina_jabatan_kegiatan }}</td>
                                                 <td>{{ $item->pembina_telepon }}</td>
-                                                <td>{{ $item->eskul->matapelajaran_nama }}</td>
-                                                <td>{{ $item->kelas->kelas_nama }}</td>
+                                                <td>{{ $item->eskul->eskul_nama }}</td>
                                                 <td>
                                                     <div class="row">
                                                         <div
