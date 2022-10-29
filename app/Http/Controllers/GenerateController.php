@@ -21,9 +21,11 @@ class GenerateController extends Controller
     {
         $faker                  = Faker::create('id_ID');
         $kelas = Kelas::all()->toArray();
+        $eskul = Eskul::all()->toArray();
 
         for ($i=0; $i < 25; $i++) {
             $kelas_random = Arr::random($kelas);
+            $eskul_random = Arr::random($eskul);
             $siswa = new Siswa;
             $login = new Login;
             $array_gender = ["L", "P"];
@@ -77,6 +79,7 @@ class GenerateController extends Controller
                 'siswa_status' => $status,
                 'login_id' => $save_login->id,
                 'kelas_id' => $kelas_random["id"],
+                'eskul_id' => $eskul_random["id"],
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
