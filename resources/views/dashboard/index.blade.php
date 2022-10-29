@@ -44,7 +44,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-uppercase mb-1">Total Guru</div>
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">Total Pembina</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">47</div>
                         {{-- <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
@@ -63,7 +63,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-uppercase mb-1">Total Mata Pelajaran</div>
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">Total Ekstrakulikuler</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">17</div>
                         {{-- <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>

@@ -87,15 +87,19 @@ class GenerateController extends Controller
     public function generate_pembina()
     {
         $faker = Faker::create('id_ID');
-        $kelas = Kelas::all()->toArray();
-        $semester = Semester::all()->toArray();
-        $mapel = Matapelajaran::all()->toArray();
+        $eskul = Eskul::all()->toArray();
+        $array_jabatan_organik = [
+            "Staff Wakasek Kesiswaaan",
+            "Staff Sarana Prasana",
+            "Staff Kurikulum",
+            "Guru",
+            "GTT",
+        ];
 
         for ($i=0; $i < 12; $i++) {
-            $kelas_random = Arr::random($kelas);
-            $semester_random = Arr::random($semester);
-            $mapel_random = Arr::random($mapel);
-            $guru = new Guru;
+            $eskul_random = Arr::random($eskul);
+            $jabatan_organik_random = Arr::random($array_jabatan_organik);
+            $pembina = new Pembina;
             $login = new Login;
             $array_gender = ["L", "P"];
             $foto = "default-user.png";
@@ -138,25 +142,25 @@ class GenerateController extends Controller
             ]);
             $save_login->save();
 
-            // GENERATE DATA GURU
-            $save_guru = $guru->create([
-                'guru_nama' => $nama,
-                'guru_nip' => $nip,
-                'guru_jeniskelamin' => $gender,
-                'guru_telepon' => $telepon,
-                'guru_foto' => $foto,
-                'guru_status' => $status,
-                'guru_kode' => $kode,
+            // GENERATE DATA Pembina
+            $save_pembina = $pembina->create([
+                'pembina_nama' => $nama,
+                'pembina_nip' => $nip,
+                'pembina_jeniskelamin' => $gender,
+                'pembina_telepon' => $telepon,
+                'pembina_foto' => $foto,
+                'pembina_status' => $status,
+                'pembina_jabatan_organik' => $jabatan_organik_random,
+                'pembina_jabatan_kegiatan' => "Pembina",
+                'pembina_kode' => $kode,
                 'login_id' => $save_login->id,
-                'semester_id' => $semester_random["id"],
-                'kelas_id' => $kelas_random["id"],
-                'matapelajaran_id' => $mapel_random["id"],
+                'eskul_id' => $eskul_random["id"],
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-            $save_guru->save();
+            $save_pembina->save();
         }
-        // return redirect()->route('daftar-guru')->with('status', 'Berhasil Auto Generate Data Guru.');
+        // return redirect()->route('daftar-pembina')->with('status', 'Berhasil Auto Generate Data Pembina.');
     }
 
     public function generate_all()

@@ -31,6 +31,9 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // KELAS ROUTE
     Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');
+
+    // ESKUL ROUTE
+    Route::get('/eskul/daftar-eskul', [EskulController::class, 'daftar_eskul'])->name('daftar-eskul');
 });
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');

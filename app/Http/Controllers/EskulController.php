@@ -16,5 +16,15 @@ use App\Models\Kelas;
 
 class EskulController extends Controller
 {
-    //
+    public function daftar_eskul()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $eskul = Eskul::all();
+        $siswa = Siswa::all();
+        return view('dashboard.daftar-eskul', [
+            'users' => $users,
+            'eskul' => $eskul,
+        ]);
+    }
 }
