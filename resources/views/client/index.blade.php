@@ -1,5 +1,13 @@
 @extends('layouts.client-layout')
 
+@push('css')
+    <style>
+        /* .container {
+            height: 800px!important;
+        } */
+    </style>
+@endpush
+
 @section('tombol-keluar')
 @endsection
 
@@ -83,7 +91,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-10 mb-4 btn shadow">
+        <div class="col-10 mb-1 btn shadow">
             <a href="absen.html">
                 <div class="card border-primary ">
                     <div class="card-body text-left">

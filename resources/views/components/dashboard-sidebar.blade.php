@@ -51,6 +51,20 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm2"
+                aria-expanded="true" aria-controls="collapseForm2">
+                <i class="fab fa-fw fa-wpforms"></i>
+                <span>Jadwal</span>
+            </a>
+            <div id="collapseForm2" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Kelola Jadwal</h6>
+                    <a class="collapse-item" href="#">Jadwal</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm"
                 aria-expanded="true" aria-controls="collapseForm">
                 <i class="fab fa-fw fa-wpforms"></i>

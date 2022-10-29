@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('assets/client') }}/css/vertical-layout-light/style.css" />
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets/client') }}/images/favicon.png" />
+    @stack('css')
   </head>
   <body>
     <!-- navbar -->
@@ -54,7 +55,7 @@
     <!-- akhir navbar -->
 
     <!-- konten -->
-    <div class="container " style="margin-top: 120px; height: 900px;">
+    <div class="container " style="margin-top: 120px; height: 800px;">
       @yield('tombol-keluar')
       @yield('main-content')
     </div>
@@ -64,7 +65,7 @@
     <footer>
     <div class="container-fluid bg-primary fixed-bottom">
           <ul>
-            <li><a href="siswa.html"><i class="bi bi-house-fill text-light "></i></a>Home</li>
+            <li><a href="{{ route('client') }}"><i class="bi bi-house-fill text-light "></i></a>Home</li>
             <li><a href="jadwal.html"><i class="bi bi-list-stars text-light"></i></a>Jadwal</li>
             <li><a href="absen.html"><i class="bi bi-person-check text-light "></i></a>Absen</li>
             <li><a href="profil.html"><i class="bi bi-person-circle text-light"></i></a>profil</li>
@@ -94,5 +95,6 @@
     <script src="{{ asset('assets/client') }}/js/dashboard.js"></script>
     <script src="{{ asset('assets/client') }}/js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
+    @stack('js')
   </body>
 </html>
