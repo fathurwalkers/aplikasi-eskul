@@ -29,7 +29,7 @@
                         <div class="row">
                             <h4>
                                 <b>
-                                    Daftar Siswa
+                                    Daftar Siswa - Kelas ({{ $kelas->kelas_nama }})
                                 </b>
                             </h4>
                         </div>

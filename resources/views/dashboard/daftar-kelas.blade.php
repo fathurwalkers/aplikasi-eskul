@@ -55,7 +55,7 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button href="#"
+                                                            <button href="{{ route('lihat-kelas', $item->id) }}"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat Kelas</button>
                                                             @if ($users->login_level == "admin")
                                                             <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
