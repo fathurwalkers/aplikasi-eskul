@@ -26,7 +26,7 @@
                 <div class="row align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Total Siswa</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">437</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $siswa }}</div>
                         {{-- <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                             <span>Since last month</span>
@@ -45,7 +45,7 @@
                 <div class="row align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Total Pembina</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">47</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pembina }}</div>
                         {{-- <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                             <span>Since last month</span>
@@ -64,7 +64,7 @@
                 <div class="row align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Total Ekstrakulikuler</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">17</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $eskul }}</div>
                         {{-- <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                             <span>Since last month</span>

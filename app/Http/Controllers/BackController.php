@@ -12,6 +12,7 @@ use App\Models\Login;
 use App\Models\Absensi;
 use App\Models\Eskul;
 use App\Models\Siswa;
+use App\Models\Pembina;
 use App\Models\Kelas;
 
 class BackController extends Controller
@@ -62,7 +63,11 @@ class BackController extends Controller
         $siswa = Siswa::all()->count();
         $pembina = Pembina::all()->count();
         $eskul = Eskul::all()->count();
-        return view('dashboard.index');
+        return view('dashboard.index', [
+            'siswa' => $siswa,
+            'pembina' => $pembina,
+            'eskul' => $eskul,
+        ]);
     }
 
     public function login_admin()
