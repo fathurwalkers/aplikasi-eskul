@@ -25,7 +25,7 @@ class GenerateController extends Controller
         $eskul = Eskul::all()->toArray();
 
         // foreach ($kelas as $itemsss) {
-            for ($i=0; $i < 20; $i++) {
+            for ($i=0; $i < 40; $i++) {
                 $kelas_random = Arr::random($kelas);
                 $eskul_random = Arr::random($eskul);
                 $siswa = new Siswa;
