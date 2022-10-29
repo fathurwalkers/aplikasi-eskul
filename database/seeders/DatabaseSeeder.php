@@ -10,6 +10,10 @@ use Faker\Factory as Faker;
 use Illuminate\Support\Arr;
 use App\Models\Login;
 use App\Models\Kelas;
+use App\Models\Eskul;
+use App\Models\Siswa;
+use App\Models\Pembina;
+use App\Models\Absensi;
 
 class DatabaseSeeder extends Seeder
 {
@@ -164,6 +168,41 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now()
             ]);
             $save_kelas->save();
+        }
+
+
+        // GENERATE ESKUL
+        $array_eskul = [
+            "Marching Band",
+            "Pramuka",
+            "Seni Rupa",
+            "Bahasa Inggris",
+            "Bahasa Korea",
+            "Olahraga",
+        ];
+
+        foreach ($array_eskul as $item) {
+            $array_angkatan = [
+                "I",
+                "II",
+                "III",
+                "IV",
+                "V",
+                "VI",
+                "VII",
+                "VIII",
+                "IX",
+                "X",
+            ];
+            // foreach ($array_angkatan as $items) {
+                Eskul::create([
+                    'eskul_gambar' => $item . ".jpg",
+                    'eskul_nama' => $item,
+                    // 'eskul_angkatan' => $items,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            // }
         }
     }
 }

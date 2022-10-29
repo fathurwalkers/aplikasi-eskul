@@ -11,9 +11,9 @@ class CreateEskulsTable extends Migration
         Schema::create('eskul', function (Blueprint $table) {
             $table->id();
 
+            $table->string('eskul_gambar')->nullable();
             $table->string('eskul_nama')->nullable();
-            $table->string('eskul_tahun')->nullable();
-            $table->string('eskul_angkatan')->nullable();
+            // $table->string('eskul_angkatan')->nullable();
 
             $table->timestamps();
         });
