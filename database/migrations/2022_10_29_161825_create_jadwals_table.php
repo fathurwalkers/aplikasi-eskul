@@ -12,7 +12,7 @@ class CreateJadwalsTable extends Migration
             $table->id();
 
             $table->string('jadwal_tempat')->nullable();
-            $table->string('jadwal_keterangan')->nullable();
+            $table->text('jadwal_keterangan')->nullable();
             $table->dateTime('jadwal_waktu')->nullable();
 
             $table->unsignedBigInteger('eskul_id')->nullable();

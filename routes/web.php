@@ -49,4 +49,5 @@ Route::group(['prefix' => '/client'], function () {
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');
 Route::get('/generate-siswa', [GenerateController::class, 'generate_siswa'])->name('generate-siswa');
+Route::get('/generate-jadwal', [GenerateController::class, 'generate_jadwal'])->name('generate-jadwal');
 Route::get('/generate-pembina', [GenerateController::class, 'generate_pembina'])->name('generate-pembina');

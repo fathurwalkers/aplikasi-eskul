@@ -13,6 +13,7 @@ use App\Models\Absensi;
 use App\Models\Eskul;
 use App\Models\Pembina;
 use App\Models\Siswa;
+use App\Models\Jadwal;
 use App\Models\Kelas;
 
 class GenerateController extends Controller
@@ -172,10 +173,44 @@ class GenerateController extends Controller
         // return redirect()->route('daftar-pembina')->with('status', 'Berhasil Auto Generate Data Pembina.');
     }
 
+    public function generate_jadwal()
+    {
+        $faker = Faker::create('id_ID');
+        $eskul = Eskul::all();
+        $array_tempat = [
+            "Gedung A SMADA",
+            "Gedung B SMADA",
+            "Gedung C SMADA",
+            "Gedung D SMADA",
+            "Gedung E SMADA",
+            "Lapangan SMADA",
+        ];
+
+        foreach ($eskul as $item) {
+            for ($i=0; $i < 2; $i++) {
+                $jadwal_tempat = Arr::random($array_tempat);
+                $jadwal_keterangan = $faker->paragraph(5);
+                $jadwal = new Jadwal;
+                $save_jadwal = $jadwal->create([
+                    "jadwal_tempat" => $jadwal_tempat,
+                    "jadwal_keterangan" => $jadwal_keterangan,
+                    "jadwal_waktu" => now(),
+                    "eskul_id" => $item->id,
+                    "created_at" => now(),
+                    "updated_at" => now(),
+                ]);
+                $save_jadwal->save();
+            }
+        }
+        $jadwal_all = Jadwal::all();
+        dd($jadwal_all);
+    }
+
     public function generate_all()
     {
         $this->generate_siswa();
         $this->generate_pembina();
+        $this->generate_jadwal();
 
         return redirect()->route('dashboard')->with('status', 'Berhasil melakukan Auto Generate Data.');
     }
