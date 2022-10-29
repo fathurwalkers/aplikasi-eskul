@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Eskul extends Model
 {
     use HasFactory;
+    protected $table = "eskul";
+    protected $guarded = [];
+    protected $primaryKey = "id";
 }

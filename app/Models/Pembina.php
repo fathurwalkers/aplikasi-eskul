@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pembina extends Model
 {
     use HasFactory;
+    protected $table = "pembina";
+    protected $guarded = [];
+    protected $primaryKey = "id";
 }

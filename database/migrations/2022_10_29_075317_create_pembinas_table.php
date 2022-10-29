@@ -6,26 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePembinasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('pembinas', function (Blueprint $table) {
+        Schema::create('pembina', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('pembinas');
+        Schema::dropIfExists('pembina');
     }
 }

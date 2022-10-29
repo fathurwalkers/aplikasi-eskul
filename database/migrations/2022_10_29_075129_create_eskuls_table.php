@@ -8,7 +8,7 @@ class CreateEskulsTable extends Migration
 {
     public function up()
     {
-        Schema::create('eskuls', function (Blueprint $table) {
+        Schema::create('eskul', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -16,6 +16,6 @@ class CreateEskulsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('eskuls');
+        Schema::dropIfExists('eskul');
     }
 }
