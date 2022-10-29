@@ -44,7 +44,7 @@
             <div id="collapseForm1" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Kelola Kelas</h6>
-                    <a class="collapse-item" href="{{ route('daftar-kelas') }}">Daftar Kelas</a>
+                    <a class="collapse-item" href="#">Daftar Kelas</a>
                     {{-- <a class="collapse-item" href="#">Tambah Mata Pelajaran</a> --}}
                 </div>
             </div>
@@ -54,18 +54,18 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm"
                 aria-expanded="true" aria-controls="collapseForm">
                 <i class="fab fa-fw fa-wpforms"></i>
-                <span>Mata Pelajaran</span>
+                <span>Ekstrakurikuler</span>
             </a>
             <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Kelola Mata Pelajaran</h6>
-                    <a class="collapse-item" href="{{ route('daftar-matapelajaran') }}">Daftar Mata Pelajaran</a>
-                    {{-- <a class="collapse-item" href="#">Tambah Mata Pelajaran</a> --}}
+                    <h6 class="collapse-header">Kelola Ekstrakurikuler</h6>
+                    <a class="collapse-item" href="#">Daftar Ekstrakurikuler</a>
+                    {{-- <a class="collapse-item" href="#">Tambah Ekstrakurikuler</a> --}}
                 </div>
             </div>
         </li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm2"
                 aria-expanded="true" aria-controls="collapseForm2">
                 <i class="fab fa-fw fa-wpforms"></i>
@@ -74,11 +74,11 @@
             <div id="collapseForm2" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manajemen Nilai</h6>
-                    <a class="collapse-item" href="{{ route('daftar-nilai') }}">Daftar Nilai</a>
-                    {{-- <a class="collapse-item" href="#">Kelola Nilai</a> --}}
+                    <a class="collapse-item" href="#">Daftar Nilai</a>
+                    <a class="collapse-item" href="#">Kelola Nilai</a>
                 </div>
             </div>
-        </li>
+        </li> --}}
 
         {{-- <li class="nav-item">
             <a class="nav-link" href="ui-colors.html">
@@ -103,8 +103,9 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manajemen Pengguna</h6>
-                    <a class="collapse-item" href="{{ route('daftar-siswa') }}">Daftar Siswa</a>
-                    <a class="collapse-item" href="{{ route('daftar-guru') }}">Daftar Guru</a>
+                    <a class="collapse-item" href="#">Daftar Siswa</a>
+                    <a class="collapse-item" href="#">Daftar Pembina</a>
+                    <a class="collapse-item" href="#">Daftar Akun</a>
                 </div>
             </div>
         </li>

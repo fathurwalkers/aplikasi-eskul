@@ -12,7 +12,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [BackController::class, 'login_siswa'])->name('login-siswa');
+Route::get('/login', [BackController::class, 'login_client'])->name('login-client');
 Route::get('/login-admin', [BackController::class, 'login_admin'])->name('login-admin');
 
 Route::post('/proses-login', [BackController::class, 'post_login'])->name('post-login');

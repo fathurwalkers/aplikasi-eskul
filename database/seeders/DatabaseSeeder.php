@@ -175,10 +175,11 @@ class DatabaseSeeder extends Seeder
         $array_eskul = [
             "Marching Band",
             "Pramuka",
-            "Seni Rupa",
+            "Seni Tari",
+            "Seni Musik",
             "Bahasa Inggris",
-            "Bahasa Korea",
-            "Olahraga",
+            "Sepak Bola",
+            "Volly Ball",
         ];
 
         foreach ($array_eskul as $item) {
