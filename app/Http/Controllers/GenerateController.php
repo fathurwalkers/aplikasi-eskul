@@ -87,7 +87,7 @@ class GenerateController extends Controller
         // return redirect()->route('daftar-siswa')->with('status', 'Berhasil melakukan Auto Generate Data Siswa.');
     }
 
-    public function generate_guru()
+    public function generate_pembina()
     {
         $faker = Faker::create('id_ID');
         $kelas = Kelas::all()->toArray();
