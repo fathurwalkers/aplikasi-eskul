@@ -187,7 +187,7 @@ class GenerateController extends Controller
         ];
 
         foreach ($eskul as $item) {
-            for ($i=0; $i < 2; $i++) {
+            for ($i=0; $i < 4; $i++) {
                 $jadwal_tempat = Arr::random($array_tempat);
                 $jadwal_keterangan = $faker->paragraph(5);
                 $jadwal = new Jadwal;

@@ -59,7 +59,7 @@
             <div id="collapseForm2" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Kelola Jadwal</h6>
-                    <a class="collapse-item" href="#">Jadwal</a>
+                    <a class="collapse-item" href="{{ route('daftar-jadwal') }}">Jadwal</a>
                 </div>
             </div>
         </li>

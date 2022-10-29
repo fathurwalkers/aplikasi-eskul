@@ -9,7 +9,7 @@ use App\Models\Eskul;
 class Jadwal extends Model
 {
     use HasFactory;
-    protected $table = "eskul";
+    protected $table = "jadwal";
     protected $guarded = [];
     protected $primaryKey = "id";
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PembinaController;
+use App\Http\Controllers\JadwalController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +32,9 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // PEMBINA ROUTE
     Route::get('/akun/daftar-akun', [BackController::class, 'daftar_akun'])->name('daftar-akun');
+
+    // JADWAL ROUTE
+    Route::get('/jadwal/daftar-jadwal', [JadwalController::class, 'daftar_jadwal'])->name('daftar-jadwal');
 
     // KELAS ROUTE
     Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');
