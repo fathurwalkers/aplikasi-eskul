@@ -210,7 +210,6 @@ class GenerateController extends Controller
     {
         $this->generate_siswa();
         $this->generate_pembina();
-        $this->generate_jadwal();
 
         return redirect()->route('dashboard')->with('status', 'Berhasil melakukan Auto Generate Data.');
     }
