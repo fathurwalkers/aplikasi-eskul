@@ -16,5 +16,8 @@ use App\Models\Kelas;
 
 class ClientController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('client.index');
+    }
 }
