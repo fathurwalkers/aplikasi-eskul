@@ -35,6 +35,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // JADWAL ROUTE
     Route::get('/jadwal/daftar-jadwal', [JadwalController::class, 'daftar_jadwal'])->name('daftar-jadwal');
+    Route::post('/jadwal/hapus-jadwal/{id}', [JadwalController::class, 'hapus_jadwal'])->name('hapus-jadwal');
 
     // KELAS ROUTE
     Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');

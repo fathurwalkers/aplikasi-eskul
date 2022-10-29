@@ -29,4 +29,20 @@ class JadwalController extends Controller
             'jadwal' => $jadwal,
         ]);
     }
+
+    public function hapus_jadwal(Request $request, $id)
+    {
+        $jadwal_id = $id;
+        $jadwal = Jadwal::find($jadwal_id);
+        $jadwal_tempat = $jadwal->jadwal_tempat;
+        $jadwal_eskul = $jadwal->eskul->eskul_nama;
+        $jadwal_hapus = $jadwal->forceDelete();
+        if ($jadwal_hapus == true) {
+            $alert = "Jadwal Ekstrakulikuler " . $jadwal_eskul . " (" . $jadwal_tempat . ") telah berhasil dihapus.";
+            return redirect()->route('daftar-jadwal')->with('status', $alert);
+        } else {
+            $alert = "Jadwal Ekstrakulikuler " . $jadwal_eskul . " (" . $jadwal_tempat . ") gagal dihapus.";
+            return redirect()->route('daftar-jadwal')->with('status', $alert);
+        }
+    }
 }

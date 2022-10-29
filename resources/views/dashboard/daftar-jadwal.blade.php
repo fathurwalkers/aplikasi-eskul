@@ -54,22 +54,58 @@
 
                                                 <td>{{ $item->eskul->eskul_nama }}</td>
                                                 <td>{{ $item->jadwal_tempat }}</td>
-                                                <td>{{ date("d-m-Y", strtotime($item->jadwal_waktu)) }}</td>
-                                                <td>{{ date("H:i", strtotime($item->jadwal_waktu)) }}</td>
+                                                <td>{{ date('d-m-Y', strtotime($item->jadwal_waktu)) }}</td>
+                                                <td>{{ date('H:i', strtotime($item->jadwal_waktu)) }}</td>
 
                                                 <td>
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button onclick="location.href = '#';" class="btn btn-sm btn-primary mr-1">Lihat</button>
-                                                            @if ($users->login_level == "admin")
-                                                            <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button>
+                                                            <button onclick="location.href = '#';"
+                                                                class="btn btn-sm btn-primary mr-1">Lihat</button>
+                                                            @if ($users->login_level == 'admin')
+                                                                <button href="#"
+                                                                    class="btn btn-sm btn-success mr-1">Ubah</button>
+                                                                <button href="#"
+                                                                    class="btn btn-sm btn-danger" data-toggle="modal"
+                                                                    data-target="#hapusModal{{ $item->id }}">Hapus</button>
                                                             @endif
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
+
+                                            {{-- MODAL HAPUS  --}}
+                                            <div class="modal fade" id="hapusModal{{ $item->id }}" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi Tindakan Penghapusan!</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Apakah anda yakin ingin menghapus Data Jadwal Ekstrakulikuler <b>{{ $item->eskul->eskul_nama }}</b> di <b>{{ $item->jadwal_tempat }}</b> ini ?</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+
+                                                            <form action="{{ route('hapus-jadwal', $item->id) }}" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="logoutrequest">
+                                                                <button type="button" class="btn btn-warning"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Hapus</button>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         @endforeach
                                     </tbody>
                                 </table>
