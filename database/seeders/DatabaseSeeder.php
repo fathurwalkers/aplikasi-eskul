@@ -157,7 +157,7 @@ class DatabaseSeeder extends Seeder
             'IX-7'
         ];
         foreach ($array_kelas as $item) {
-            $save_kelas = $kelas->create([
+            $save_kelas = Kelas::create([
                 'kelas_kode' => strtoupper(Str::random(3)) . "-" . strtoupper(Str::random(3)),
                 'kelas_nama' => $item,
                 'created_at' => now(),
