@@ -11,6 +11,7 @@ use Illuminate\Support\Arr;
 use App\Models\Login;
 use App\Models\Absensi;
 use App\Models\Eskul;
+use App\Models\Pembina;
 use App\Models\Siswa;
 use App\Models\Kelas;
 
@@ -96,7 +97,7 @@ class GenerateController extends Controller
             "GTT",
         ];
 
-        for ($i=0; $i < 12; $i++) {
+        for ($i=0; $i < 10; $i++) {
             $eskul_random = Arr::random($eskul);
             $jabatan_organik_random = Arr::random($array_jabatan_organik);
             $pembina = new Pembina;

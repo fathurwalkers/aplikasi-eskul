@@ -11,6 +11,7 @@ use Illuminate\Support\Arr;
 use App\Models\Login;
 use App\Models\Absensi;
 use App\Models\Eskul;
+use App\Models\Pembina;
 use App\Models\Siswa;
 use App\Models\Kelas;
 
