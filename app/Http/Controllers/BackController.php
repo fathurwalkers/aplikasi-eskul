@@ -59,6 +59,9 @@ class BackController extends Controller
         if($this->users == "pengguna"){
             return redirect()->route('client-index')->with('status', 'Maaf anda tidak punya akses ke halaman ini.');
         }
+        $siswa = Siswa::all()->count();
+        $pembina = Pembina::all()->count();
+        $eskul = Eskul::all()->count();
         return view('dashboard.index');
     }
 
