@@ -20,4 +20,9 @@ class ClientController extends Controller
     {
         return view('client.index');
     }
+
+    public function client_daftar_eskul()
+    {
+        return view('client.client-daftar-eskul');
+    }
 }
