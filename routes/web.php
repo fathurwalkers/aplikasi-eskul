@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EskulController;
 use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PembinaController;
 
 Route::get('/', function () {
@@ -27,6 +28,9 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // PEMBINA ROUTE
     Route::get('/pembina/daftar-pembina', [PembinaController::class, 'daftar_pembina'])->name('daftar-pembina');
+
+    // KELAS ROUTE
+    Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');
 });
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');
