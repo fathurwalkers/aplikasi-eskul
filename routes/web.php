@@ -29,6 +29,9 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     // PEMBINA ROUTE
     Route::get('/pembina/daftar-pembina', [PembinaController::class, 'daftar_pembina'])->name('daftar-pembina');
 
+    // PEMBINA ROUTE
+    Route::get('/akun/daftar-akun', [BackController::class, 'daftar_akun'])->name('daftar-akun');
+
     // KELAS ROUTE
     Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');
 

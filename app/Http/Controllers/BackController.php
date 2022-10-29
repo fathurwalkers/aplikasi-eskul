@@ -23,6 +23,19 @@ class BackController extends Controller
         $this->users = session('data_login');
     }
 
+    public function daftar_akun()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        // $akun = Login::all();
+        $akun = Login::where('login_level', 'user')->get();
+        $siswa = Siswa::all();
+        return view('dashboard.daftar-akun', [
+            'users' => $users,
+            'akun' => $akun,
+        ]);
+    }
+
     public function data_akun()
     {
         $akun = Data::all();
@@ -107,7 +120,7 @@ class BackController extends Controller
                     }
                 }
                 break;
-            case 'pengguna':
+            case 'user':
                 if ($cek_request == "admin") {
                     return redirect()->route('login-admin')->with('status', 'Maaf anda tidak dapat memasukkan akun user pada halaman administrator!');
                 }
