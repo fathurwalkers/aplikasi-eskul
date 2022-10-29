@@ -46,6 +46,7 @@
                                             <th>No. Telepon</th>
                                             <th>Status</th>
                                             <th>Kelas</th>
+                                            <th>Ekstrakulikuler</th>
                                             <th>Kelola</th>
                                         </tr>
                                     </thead>
@@ -68,6 +69,7 @@
                                                 <td>{{ $item->siswa_telepon }}</td>
                                                 <td>{{ $item->siswa_status }}</td>
                                                 <td>{{ $item->kelas->kelas_nama }}</td>
+                                                <td>{{ $item->eskul->eskul_nama }}</td>
                                                 <td>
                                                     <div class="row">
                                                         <div
