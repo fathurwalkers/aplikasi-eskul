@@ -28,4 +28,17 @@ class EskulController extends Controller
             'eskul' => $eskul,
         ]);
     }
+
+    public function lihat_eskul($id)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('eskul_id', $id)->get();
+        $eskul = Eskul::find($id);
+        return view('dashboard.lihat-eskul', [
+            'users' => $users,
+            'siswa' => $siswa,
+            'eskul' => $eskul,
+        ]);
+    }
 }

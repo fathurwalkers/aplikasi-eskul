@@ -38,6 +38,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // ESKUL ROUTE
     Route::get('/eskul/daftar-eskul', [EskulController::class, 'daftar_eskul'])->name('daftar-eskul');
+    Route::get('/eskul/lihat-eskul/{id}', [EskulController::class, 'lihat_eskul'])->name('lihat-eskul');
 });
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');
