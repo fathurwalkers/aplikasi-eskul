@@ -42,10 +42,10 @@
                                             <th>No.</th>
                                             <th>Nama</th>
                                             <th>NIP</th>
-                                            <th>Jenis Kelamin</th>
+                                            <th>Jabatan Organik</th>
+                                            <th>Jabatan Kegiatan</th>
                                             <th>No. Telepon</th>
-                                            <th>Mata Pelajaran</th>
-                                            <th>Kelas</th>
+                                            <th>Ekstrakulikuler</th>
                                             <th>Kelola</th>
                                         </tr>
                                     </thead>
@@ -55,18 +55,8 @@
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $item->pembina_nama }}</td>
                                                 <td>{{ $item->pembina_nip }}</td>
-                                                <td>
-                                                    @switch($item->pembina_jeniskelamin)
-                                                        @case("L")
-                                                            Laki - Laki
-                                                            @break
-                                                        @case("P")
-                                                            Perempuan
-                                                            @break
-                                                    @endswitch
-                                                </td>
                                                 <td>{{ $item->pembina_telepon }}</td>
-                                                <td>{{ $item->matapelajaran->matapelajaran_nama }}</td>
+                                                <td>{{ $item->eskul->matapelajaran_nama }}</td>
                                                 <td>{{ $item->kelas->kelas_nama }}</td>
                                                 <td>
                                                     <div class="row">
