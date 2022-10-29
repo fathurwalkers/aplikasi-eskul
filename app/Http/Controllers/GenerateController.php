@@ -20,15 +20,13 @@ class GenerateController extends Controller
     public function generate_siswa()
     {
         $faker                  = Faker::create('id_ID');
-        // $kelas = Kelas::all()->toArray();
-        $kelas = Kelas::all();
+        $kelas = Kelas::all()->toArray();
+        // $kelas = Kelas::all();
         $eskul = Eskul::all()->toArray();
 
-        foreach ($kelas as $itemsss) {
-            dump($itemsss);
-            die;
+        // foreach ($kelas as $itemsss) {
             for ($i=0; $i < 20; $i++) {
-                // $kelas_random = Arr::random($kelas);
+                $kelas_random = Arr::random($kelas);
                 $eskul_random = Arr::random($eskul);
                 $siswa = new Siswa;
                 $login = new Login;
@@ -82,14 +80,16 @@ class GenerateController extends Controller
                     'siswa_foto' => $foto,
                     'siswa_status' => $status,
                     'login_id' => $save_login->id,
-                    'kelas_id' => $itemsss->id,
+                    'kelas_id' => $kelas_random["id"],
+                    // 'kelas_id' => $itemsss->id,
                     'eskul_id' => $eskul_random["id"],
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);
                 $save_siswa->save();
             }
-        }
+        // }
+
         // return redirect()->route('daftar-siswa')->with('status', 'Berhasil melakukan Auto Generate Data Siswa.');
     }
 
@@ -176,6 +176,7 @@ class GenerateController extends Controller
     {
         $this->generate_siswa();
         $this->generate_pembina();
+
         return redirect()->route('dashboard')->with('status', 'Berhasil melakukan Auto Generate Data.');
     }
 }
