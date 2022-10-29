@@ -134,7 +134,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-
         // GENERATE KELAS
         $kelas = new Kelas;
         $array_kelas = [
