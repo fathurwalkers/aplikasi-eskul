@@ -142,6 +142,18 @@ class BackController extends Controller
                     }
                 }
                 break;
+            case 'pembina':
+                if ($cek_request == "admin") {
+                    return redirect()->route('login-admin')->with('status', 'Maaf anda tidak dapat masuk menggunakan akun User pada Aplikasi Client, silahkan masuk ke Akun User pada Halaman User melalui Aplikasi Android');
+                }
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('client-index')->with('status', 'Berhasil Login!');
+                    }
+                }
+                break;
         }
         return back()->with('status', 'Maaf username atau password salah!')->withInput();
     }

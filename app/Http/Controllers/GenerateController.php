@@ -130,7 +130,7 @@ class GenerateController extends Controller
 
             // GENERATE DATA LOGIN
             $token = Str::random(16);
-            $level = "user";
+            $level = "pembina";
             $hashPassword = Hash::make('12345', [
                 'rounds' => 12,
             ]);
