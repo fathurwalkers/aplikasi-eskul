@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="img/logo/logo.png" rel="icon">
-    <title>SIAKAD SMP 17 BAUBAU - Login</title>
+    <title>Aplikasi Ekstrakulikuler SMA 2 Baubau - Login</title>
     <link href="{{ asset('assets/ruangadmin') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
         type="text/css">
     <link href="{{ asset('assets/ruangadmin') }}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"
@@ -29,11 +29,20 @@
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">LOGIN <br>SIAKAD SMP 17</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">LOGIN <br>Aplikasi Ekstrakulikuler SMA 2 Baubau</h1>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            @if (session('status'))
+                                                <div class="alert alert-success">
+                                                    {{ session('status') }}
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
                                     <form class="user" action="{{ route('post-login') }}" method="POST">
                                         @csrf
-                                        <input type="hidden" name="cekrequest" value="siswa">
+                                        <input type="hidden" name="cekrequest" value="user">
                                         <div class="form-group">
                                             <input type="text" name="login_username" class="form-control"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
