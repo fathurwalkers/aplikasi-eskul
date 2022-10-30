@@ -16,13 +16,34 @@ use App\Models\Kelas;
 
 class ClientController extends Controller
 {
+    protected $users;
+
+    public function __construct()
+    {
+        $this->users = session('data_login');
+    }
+
     public function index()
     {
-        return view('client.index');
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        return view('client.index', [
+            'users' => $users,
+            'siswa' => $siswa,
+        ]);
     }
 
     public function client_daftar_eskul()
     {
-        return view('client.client-daftar-eskul');
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        $eskul = Eskul::all();
+        return view('client.client-daftar-eskul', [
+            'users' => $users,
+            'siswa' => $siswa,
+            'eskul' => $eskul,
+        ]);
     }
 }

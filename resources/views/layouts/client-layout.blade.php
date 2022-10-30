@@ -41,12 +41,12 @@
           <h6 style=" font: size 15px; display: inline;">Extraculicullar</h6>
         </a>
         <span class="navbar-text" style="margin-left: auto; font-size: 10px;">
-            Gifar Dani
+            {{ $users->login_nama }}
           </span>
         <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-item" href="profil.html">
-                  <img class="rounded-circle shadow" style="width: 2rem; margin-left: 5px;" src="{{ asset('assets/client') }}/images/gifar.jpg" alt="">
+                  <img class="rounded-circle shadow" style="width: 2rem; margin-left: 5px;" src="{{ asset('assets') }}/{{ $siswa->siswa_foto }}" alt="">
               </a>
             </li>
       </div>

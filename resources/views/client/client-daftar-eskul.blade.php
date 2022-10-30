@@ -12,16 +12,20 @@
 @section('main-content')
     <div class="container">
         <div class="row mt-4  justify-content-center">
+
+            @foreach ($eskul as $items)
             <div class="col-11 mb-5 shadow-sm">
                 <div class="card border-primary h-100 text-right">
-                    <img src="{{ asset('assets/client') }}/images/mband.jpg" class="card-img-top" alt="..." />
+                    <img src="{{ asset('assets') }}/{{ $items->eskul_gambar }}" class="card-img-top" alt="..." />
                     <div class="card-body">
-                        <h6 class="card-title font-weight-bold">Marching Band</h6>
+                        <h6 class="card-title font-weight-bold">{{ $items->eskul_nama }}</h6>
                         <a href="kegiatanMarching.html" class="btn btn-primary btn-sm">Lihat kegiatan</a>
                     </div>
                 </div>
             </div>
-            <div class="col-11 mb-5 shadow-sm">
+            @endforeach
+
+            {{-- <div class="col-11 mb-5 shadow-sm">
                 <div class="card border-success h-100 text-right">
                     <img src="{{ asset('assets/client') }}/images/pramuka.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
@@ -47,7 +51,7 @@
                         <a href="kegiatanBing.html" class="btn btn-danger btn-sm">Lihat kegiatan</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

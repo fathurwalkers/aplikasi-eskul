@@ -83,7 +83,7 @@ class BackController extends Controller
     {
         $users = session('data_login');
         if ($users) {
-            return redirect()->route('client-index');
+            return redirect()->route('client');
         }
         return view('login-client');
     }
@@ -114,8 +114,6 @@ class BackController extends Controller
         $cek_request = $request->cekrequest;
         $username = $request->login_username;
         $cari_user = Login::where('login_username', $username)->first();
-        dump($username);
-        dd($cari_user);
         if ($cari_user == null) {
             return back()->with('status', 'Maaf username atau password salah!')->withInput();
         }
