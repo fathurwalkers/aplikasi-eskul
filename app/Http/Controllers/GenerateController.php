@@ -56,7 +56,7 @@ class GenerateController extends Controller
                 $hashToken = Hash::make($token, [
                     'rounds' => 12,
                 ]);
-                $username = strtolower(Str::random(10));
+                $username = "user".strtolower(Str::random(5));
                 $save_login = $login->create([
                     'login_nama'        => $nama,
                     'login_username'    => $username,

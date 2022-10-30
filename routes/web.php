@@ -47,7 +47,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/eskul/lihat-eskul/{id}', [EskulController::class, 'lihat_eskul'])->name('lihat-eskul');
 });
 
-Route::group(['prefix' => '/client'], function () {
+Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {
     // CLIENT ROUTE
     Route::get('/', [ClientController::class, 'index'])->name('client');
     Route::get('/client-daftar-eskul', [ClientController::class, 'client_daftar_eskul'])->name('client-daftar-eskul');

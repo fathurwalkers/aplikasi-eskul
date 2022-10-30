@@ -112,7 +112,10 @@ class BackController extends Controller
     public function post_login(Request $request)
     {
         $cek_request = $request->cekrequest;
-        $cari_user = Login::where('login_username', $request->login_username)->first();
+        $username = $request->login_username;
+        $cari_user = Login::where('login_username', $username)->first();
+        dump($username);
+        dd($cari_user);
         if ($cari_user == null) {
             return back()->with('status', 'Maaf username atau password salah!')->withInput();
         }
@@ -138,7 +141,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('client-index')->with('status', 'Berhasil Login!');
+                        return redirect()->route('client')->with('status', 'Berhasil Login!');
                     }
                 }
                 break;
@@ -150,7 +153,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('client-index')->with('status', 'Berhasil Login!');
+                        return redirect()->route('client')->with('status', 'Berhasil Login!');
                     }
                 }
                 break;
