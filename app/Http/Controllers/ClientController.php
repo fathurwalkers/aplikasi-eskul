@@ -59,4 +59,17 @@ class ClientController extends Controller
             'eskul' => $eskul,
         ]);
     }
+
+    public function client_prestasi_marching_band()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        $eskul = Eskul::all();
+        return view('client.client-prestasi-marching-band', [
+            'users' => $users,
+            'siswa' => $siswa,
+            'eskul' => $eskul,
+        ]);
+    }
 }

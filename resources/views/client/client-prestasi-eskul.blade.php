@@ -17,7 +17,7 @@
                     <img src="{{ asset('assets/client') }}/images/mband.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold">Marching Band</h6>
-                        <a href="prestasiExtMarching.html" class="btn btn-primary btn-sm">Lihat prestasi</a>
+                        <a href="{{ route('client-prestasi-marching-band') }}" class="btn btn-primary btn-sm">Lihat prestasi</a>
                     </div>
                 </div>
             </div>
