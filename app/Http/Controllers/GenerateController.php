@@ -18,6 +18,77 @@ use App\Models\Kelas;
 
 class GenerateController extends Controller
 {
+    public function generate_default_siswa()
+    {
+        $faker                  = Faker::create('id_ID');
+        $kelas = Kelas::all()->toArray();
+        // $kelas = Kelas::all();
+        $eskul = Eskul::all()->toArray();
+        $kelas_random = Arr::random($kelas);
+                $eskul_random = Arr::random($eskul);
+                $siswa = new Siswa;
+                $login = new Login;
+                $array_gender = ["L", "P"];
+                $foto = "default-user.png";
+                $gender = Arr::random($array_gender);
+                $nisn = $faker->randomNumber(8);
+                $telepon = $faker->phoneNumber();
+                $status = "AKTIF";
+                $alamat = $faker->address();
+                switch ($gender) {
+                    case "L":
+                        $nama = $faker->firstNameMale() . " " . $faker->lastNameMale();
+                        break;
+                    case "P":
+                        $nama = $faker->firstNameFemale() . " " . $faker->lastNameFemale();
+                        break;
+                }
+
+                // GENERATE DATA LOGIN
+                $token = Str::random(16);
+                $level = "user";
+                $hashPassword = Hash::make('12345', [
+                    'rounds' => 12,
+                ]);
+                $hashToken = Hash::make($token, [
+                    'rounds' => 12,
+                ]);
+                $username = "example";
+                $save_login = $login->create([
+                    'login_nama'        => $nama,
+                    'login_username'    => $username,
+                    'login_password'    => $hashPassword,
+                    'login_email'       => $faker->email(),
+                    'login_telepon'     => $telepon,
+                    'login_token'       => $hashToken,
+                    'login_level'       => $level,
+                    'login_status'      => "verified",
+                    'created_at'        => now(),
+                    'updated_at'        => now()
+                ]);
+                $save_login->save();
+
+                // GENERATE DATA SISWA
+                $save_siswa = $siswa->create([
+                    'siswa_nama' => $nama,
+                    'siswa_nisn' => $nisn,
+                    'siswa_jeniskelamin' => $gender,
+                    'siswa_alamat' => $alamat,
+                    'siswa_telepon' => $telepon,
+                    'siswa_foto' => $foto,
+                    'siswa_status' => $status,
+                    'login_id' => $save_login->id,
+                    'kelas_id' => $kelas_random["id"],
+                    // 'kelas_id' => $itemsss->id,
+                    'eskul_id' => $eskul_random["id"],
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+                $save_siswa->save();
+
+        // return redirect()->route('daftar-siswa')->with('status', 'Berhasil melakukan Auto Generate Data Siswa.');
+    }
+
     public function generate_siswa()
     {
         $faker                  = Faker::create('id_ID');
@@ -209,6 +280,7 @@ class GenerateController extends Controller
     public function generate_all()
     {
         $this->generate_siswa();
+        $this->generate_default_siswa();
         $this->generate_pembina();
 
         return redirect()->route('dashboard')->with('status', 'Berhasil melakukan Auto Generate Data.');

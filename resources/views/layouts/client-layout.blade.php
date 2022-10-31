@@ -45,7 +45,7 @@
           </span>
         <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-item" href="profil.html">
+              <a class="nav-item" href="{{ route('client-profile') }}">
                   <img class="rounded-circle shadow" style="width: 2rem; margin-left: 5px;" src="{{ asset('assets') }}/{{ $siswa->siswa_foto }}" alt="">
               </a>
             </li>

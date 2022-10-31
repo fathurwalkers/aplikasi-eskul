@@ -34,6 +34,17 @@ class ClientController extends Controller
         ]);
     }
 
+    public function client_profile()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        return view('client.client-profile', [
+            'users' => $users,
+            'siswa' => $siswa,
+        ]);
+    }
+
     public function client_daftar_eskul()
     {
         $session_users = session('data_login');

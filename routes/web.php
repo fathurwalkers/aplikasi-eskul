@@ -50,6 +50,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {
     // CLIENT ROUTE
     Route::get('/', [ClientController::class, 'index'])->name('client');
+    Route::get('/client-profile', [ClientController::class, 'client_profile'])->name('client-profile');
 
     Route::get('/client-daftar-eskul', [ClientController::class, 'client_daftar_eskul'])->name('client-daftar-eskul');
 
@@ -62,5 +63,6 @@ Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');
 Route::get('/generate-siswa', [GenerateController::class, 'generate_siswa'])->name('generate-siswa');
+Route::get('/generate-default-siswa', [GenerateController::class, 'generate_default_siswa'])->name('generate-default-siswa');
 Route::get('/generate-jadwal', [GenerateController::class, 'generate_jadwal'])->name('generate-jadwal');
 Route::get('/generate-pembina', [GenerateController::class, 'generate_pembina'])->name('generate-pembina');
