@@ -5,7 +5,7 @@
         <a href="{{ route('client-prestasi-eskul') }}">
             <i class="bi bi-arrow-left-circle" style="font-size: 2rem; margin-right: 30px;"></i>
         </a>
-        <h5 style="display: inline-block;">Prestasi Pramuka</h5>
+        <h5 style="display: inline-block;">Prestasi Seni Rupa</h5>
     </div>
 @endsection
 
@@ -15,28 +15,65 @@
 
             <div class="col-11 mb-5 shadow-sm">
                 <div class="card border-primary mb-3">
-                    <img src="{{ asset('assets/client') }}/images/pramuka.jpg" class="card-img-top" alt="...">
+                    <img src="{{ asset('assets/client') }}/images/seni.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><b>
                                 SMAN 2 Baubau Kembali Juara Umum FLS2N
                             </b>
                         </h5>
                         <p class="card-text">
-                            Pramuka Gugus Depan (Gudep) Jogugu La Arafani Pangkalan SMAN 2 Baubau memperingati hari jadinya yang ke 18, perayaan ini dilaksanakan di lapangan utama SMAN 2 Baubau, Senin (19/9/2022).</p>
+                            Festival dan Lomba Seni Siswa Nasional (FLS2N) yang diselenggarakan oleh Musyawarah Kerja Kepala Sekolah (MKKS) SMAN se Kota Baubau dan bekerja sama dengan Kepala Cabang Dinas (KCD) Kota Baubau-Busel, SMAN 2 Baubau berhasil meraih juara umum.
+                        </p>
 
                         <p class="card-text">
-                            Perayaan hari jadi Gudep Jogugu La Arafani ini dihadiri oleh berbagai pihak, diantaranya Ketua Kwartir Cabang Kota Baubau, seluruh unsur pembina gudep, Mabigus Jogugu La Arafani, Ketua DKC Kota Baubau, dan juga Andalan Kwartir Cabang Kota Baubau.</p>
+                                Demikian dikatakan kepala SMAN 2 Baubau, Muh Radi melalui koran ini, Senin (6/5). Ia mengungkapkan, prestasi yang telah diraih oleh siswanya selanjutnya akan mewakili Kota Baubau di tingkat Provinsi Sulawesi Tenggara (Sulra). Mengingat kegiatan FLS2N yang dilaksanakan itu sudah menjadi kegiatan rutinitas setiap tahun dari tingkat kota, provinsi hingga nasional.
+                        </p>
 
                         <p class="card-text">
-                            Di hari jadi Gudep Jogugu La Arafani yang ke 18 ini, beberapa prestasi yang pernah diraih selama tahun 2022 ikut dipersembahkan, selain itu juga menjadi kado terbaik pada ulang tahun ke 18 ini, 2 orang alumni dari Gudep Jogugu La Arafani berhasil lolos pada penerimaan Akpol tahun 2022 dan Bintara Polri, mereka adalah Mantan Ketua Dewan Ambalan Putra dan Ketua Dewan Ambalan Putri Gudep Jogugu La Arafani.</p>
+                            “Alhamdulillah dari berbagai lomba yang diikuti tersebut, SMAN 2 Baubau berhasil menorehkan 10 gelar juara untuk peringkat I, II dan III, sehingga menempatkan SMAN 2 Baubau untuk posisi Juara Umum. Untuk perolehan Juara I diraih siswa dalam lomba Tari Berpasangan, Monolog, Baca Puisi, Desain poster Putra, Desain Poster putri ” jelas Muhammad Radi di ruang kerjanya.
+                        </p>
 
                         <p class="card-text">
-                            Ketua Kwartir Cabang Kota Baubau, Roni Muhtar merasa bangga akan capaian yang telah ditorehkan oleh Gudep ini, menurutnya ini merupakan keberhasilan pembinaan Pramuka di Gudep Jogugu La Arafani, secara umum ia juga merasa bangga akan prestasi dari SMAN 2 Baubau apa lagi Wali Kota Baubau saat ini merupakan Alumni SMAN 2 Baubau.</p>
+                            Ia menambahkan, prestasi yang diraih oleh siswanya itu tidak terlepas dari hasil kerja keras siswa, pelatih dan pembinan serta dukungan dari orang tua siswa. Sehingga merasa bangga dengan hasil yang dicapai oleh siswa SMAN 2 Baubau tahun ini. Sebab siswanya telah mempersembahkan yang terbaik dalam mengikuti FLS2N tahun ini.
+                        </p>
+
+                        <p class="card-text">
+                            “Kita berharap prestasi FLS2N yang diraih tersebut dapat berlanjut ditingkat propinsi dan Nasional. Sebagai sekolah penyelenggara Tari Berpasangan dan Monolog FLS2N tingkat Kota Baubau, kita telah berupaya semaksimal mungkin untuk kelancaran kegiatan tersebut, dengan memfasilitasi sarana dan prasarana,”tambahnya.
+                        </p>
+
+                        <p class="card-text">
+                            Sementara itu, Staf Wakil Kepala Sekolah Bidang Kesiswaan Situ Chadija SPd menjelaskan, kegiatan FLS2N tingkat Kota Baubau yang berlangsung pada tanggal 2 -5 Mei 2019 diikuti sebanyak 100 lebih peserta dari SMA /MA Negeri dan Swasta se-Kota Baubau. Ia menyebutkan, cabang lomba yang diperlombakan yakni tari kreasi, solo song, gitar solo, desain poster dan kriya.
+                        </p>
+
+                        <p class="card-text">
+                            Selain itu, lomba baca puisi, cipta puisi, film pendek dan monolog. Dalam kegiatan mendatangkan juri dari sanggar seni,lembaga seni dan budaya dari Kota Baubau. Lanjut Chadija, FLS2N bertujuan untuk membina dan meningkatkan kreativitas siswa terhadap bidang seni yang berkarakter pada budaya bangsa. Melalui kegiatan FLS2N, akan terwujud siswa SMA yang kreatif, cerdas dan berkarakter melalui penghayatan dan penguasaan seni budaya bangsa.
+                        </p>
+
+                        <p class="card-text">
+                            “Dalam lomba yang digelar, berhasil terpilih siswa terbaik yang nantinya akan mewakili Baubau dalam lomba yang sama ke tingkat Provinsi Sulawesi Tenggara Mudah-mudahan siswa kita yang akan mewakili kota Baubau nantinya, bisa meraih prestasi yang membanggakan bagi sekolah, khususnya bagi Kota Baubau” tegas Chadija.
+                        </p>
+
+                        <p class="card-text">
+                            Perlu diketahui, juara I tari terpasangan diraih Melvin Anggun Fazirah dan Anugrah Ananda Nurtika, <br />
+                            juara I monolog diraih Fahrunnisa Ilmi,<br />
+                            juara I puisi diraih oleh Nabila Sitratin,<br />
+                            juara I desain poster putra diraih Wahyu Presetyali putra,juara I desain poster putri Robiati Adawia
+                            dan juara II puisi diraih Wa Ode Iqrami Qur’aniah Baziqhoh.
+                        </p>
+
+                        <p class="card-text">
+                            Termasuk juara II Seni Kriya Putra Indra Rahmawan,<br />
+                            juara II Seni Kriya Putri diraih Pertua Nuramdhani,<br />
+                            juara III Nyanyi Solo Putra Arya Dimas,<br />
+                            juara III Gitar Solo diraih La Arifin<br />
+                            , Juara empat Film Pendek diraih olehLukmanul Hakim dan La Ode Farhan.(m2).
+                        </p>
+
                     </div>
                     <ul class="list-group list-group-flush ">
-                        <li class="list-group-item list-group-item-primary">Pramuka SMAN 2 Kota Baubau</li>
+                        <li class="list-group-item list-group-item-primary">Seni Rupa SMAN 2 Kota Baubau</li>
                         <li class="list-group-item list-group-item-primary">Tingkat Sekota Baubau</li>
-                        <li class="list-group-item list-group-item-primary">2022</li>
+                        <li class="list-group-item list-group-item-primary">2019</li>
                     </ul>
                 </div>
             </div>

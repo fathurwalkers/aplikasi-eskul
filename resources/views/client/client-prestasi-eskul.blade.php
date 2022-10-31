@@ -35,7 +35,7 @@
                     <img src="{{ asset('assets/client') }}/images/seni.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold">Seni Rupa</h6>
-                        <a href="prestasiExtSeni.html" class="btn btn-warning btn-sm">Lihat prestasi</a>
+                        <a href="{{ route('client-prestasi-seni-rupa') }}" class="btn btn-warning btn-sm">Lihat prestasi</a>
                     </div>
                 </div>
             </div>
