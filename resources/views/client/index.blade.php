@@ -65,7 +65,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-10 mb-4 btn shadow">
+        {{-- <div class="col-10 mb-4 btn shadow">
             <a href="prestasiSiswa.html">
                 <div class="card border-success ">
                     <div class="card-body text-left">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
             </a>
-        </div>
+        </div> --}}
         <div class="col-10 mb-4 btn shadow">
             <a href="nilaiSiswa.html">
                 <div class="card border-warning ">
