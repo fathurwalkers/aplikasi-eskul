@@ -50,7 +50,10 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {
     // CLIENT ROUTE
     Route::get('/', [ClientController::class, 'index'])->name('client');
+
     Route::get('/client-daftar-eskul', [ClientController::class, 'client_daftar_eskul'])->name('client-daftar-eskul');
+
+    Route::get('/client-prestasi-eskul', [ClientController::class, 'client_prestasi_eskul'])->name('client-prestasi-eskul');
 });
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');

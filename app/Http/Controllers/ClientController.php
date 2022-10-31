@@ -46,4 +46,17 @@ class ClientController extends Controller
             'eskul' => $eskul,
         ]);
     }
+
+    public function client_prestasi_eskul()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        $eskul = Eskul::all();
+        return view('client.client-prestasi-eskul', [
+            'users' => $users,
+            'siswa' => $siswa,
+            'eskul' => $eskul,
+        ]);
+    }
 }

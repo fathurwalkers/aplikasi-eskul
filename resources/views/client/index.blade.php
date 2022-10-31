@@ -53,7 +53,7 @@
             </a>
         </div>
         <div class="col-10 mb-4 btn shadow">
-            <a href="prestasiExt.html">
+            <a href="{{ route('client-prestasi-eskul') }}">
                 <div class="card border-info ">
                     <div class="card-body text-left">
                         <button type="button" class="btn btn-info btn-sm">
