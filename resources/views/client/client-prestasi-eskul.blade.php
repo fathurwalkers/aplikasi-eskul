@@ -44,7 +44,7 @@
                     <img src="{{ asset('assets/client') }}/images/b.inggris.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold">Bahasa Inggris</h6>
-                        <a href="prestasiExtBing.html" class="btn btn-danger btn-sm">Lihat prestasi</a>
+                        <a href="{{ route('client-prestasi-bahasa-inggris') }}" class="btn btn-danger btn-sm">Lihat prestasi</a>
                     </div>
                 </div>
             </div>
