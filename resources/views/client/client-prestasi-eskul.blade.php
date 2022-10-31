@@ -26,7 +26,7 @@
                     <img src="{{ asset('assets/client') }}/images/pramuka.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold">Pramuka</h6>
-                        <a href="prestasiExtPramuka.html" class="btn btn-success btn-sm">Lihat prestasi</a>
+                        <a href="{{ route('client-prestasi-pramuka') }}" class="btn btn-success btn-sm">Lihat prestasi</a>
                     </div>
                 </div>
             </div>
