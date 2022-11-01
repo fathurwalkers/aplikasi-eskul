@@ -74,15 +74,17 @@ class ClientController extends Controller
 
     public function client_lihat_jadwal($id)
     {
-        $jadwal_id = $id;
+        $eskul_id = $id;
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
         $siswa = Siswa::where('login_id', $users->id)->first();
-        $jadwal = Jadwal::all();
+        $eskul = Eskul::find($eskul_id);
+        $jadwal = Jadwal::where('eskul_id', $eskul_id)->get();
         return view('client.client-lihat-jadwal', [
             'users' => $users,
             'siswa' => $siswa,
             'jadwal' => $jadwal,
+            'eskul' => $eskul,
         ]);
     }
 
