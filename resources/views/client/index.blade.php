@@ -26,8 +26,8 @@
                 </div>
             </a>
         </div>
-        {{-- <div class="col-10 mb-4 btn shadow">
-            <a href="jadwal.html">
+        <div class="col-10 mb-4 btn shadow">
+            <a href="{{ route('client-daftar-jadwal') }}">
                 <div class="card border-warning  ">
                     <div class="card-body text-left">
                         <button type="button" class="btn btn-warning btn-sm">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </a>
-        </div> --}}
+        </div>
         <div class="col-10 mb-4 btn shadow">
             <a href="{{ route('client-daftar-eskul') }}">
                 <div class="card border-danger ">
