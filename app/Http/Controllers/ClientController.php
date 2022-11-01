@@ -64,8 +64,22 @@ class ClientController extends Controller
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
         $siswa = Siswa::where('login_id', $users->id)->first();
-        $jadwal = Jadwal::all();
+        $eskul = Eskul::all();
         return view('client.client-daftar-jadwal', [
+            'users' => $users,
+            'siswa' => $siswa,
+            'eskul' => $eskul,
+        ]);
+    }
+
+    public function client_lihat_jadwal($id)
+    {
+        $jadwal_id = $id;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        $jadwal = Jadwal::all();
+        return view('client.client-lihat-jadwal', [
             'users' => $users,
             'siswa' => $siswa,
             'jadwal' => $jadwal,
