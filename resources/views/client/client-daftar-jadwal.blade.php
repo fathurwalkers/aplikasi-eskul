@@ -19,7 +19,7 @@
                     <img src="{{ asset('assets') }}/{{ $items->eskul_gambar }}" class="card-img-top" alt="..." />
                     <div class="card-body">
                         <h6 class="card-title font-weight-bold">{{ $items->eskul_nama }}</h6>
-                        <a href="kegiatanMarching.html" class="btn btn-primary btn-sm">Lihat kegiatan</a>
+                        <a href="kegiatanMarching.html" class="btn btn-primary btn-sm">Lihat Jadwal</a>
                     </div>
                 </div>
             </div>
