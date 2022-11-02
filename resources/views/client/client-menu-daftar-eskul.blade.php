@@ -20,7 +20,7 @@
                         <img src="{{ asset('assets') }}/{{ $item->eskul_gambar }}" class="card-img-top" alt="..." />
                         <div class="card-body">
                             <h6 class="card-title font-weight-bold">{{ $item->eskul_nama }}</h6>
-                            <a href="formPendaftaran.html" class="btn btn-primary btn-sm">Daftar</a>
+                            <a href="{{ route('client-mendaftar-eskul', $item->id) }}" class="btn btn-primary btn-sm">Daftar</a>
                         </div>
                     </div>
                 </div>
