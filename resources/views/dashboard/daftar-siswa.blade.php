@@ -84,10 +84,49 @@
                                                                 class="btn btn-sm btn-primary mr-1">Lihat</button>
                                                             @if ($users->login_level == "admin")
                                                             <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button>
+                                                            <button data-toggle="modal"
+                                                            data-target="#hapusModal{{ $item->id }}" class="btn btn-sm btn-danger">Hapus</button>
                                                             @endif
                                                         </div>
                                                     </div>
+
+
+                                                    {{-- MODAL HAPUS --}}
+                                                    <div class="modal fade" id="hapusModal{{ $item->id }}" tabindex="-1"
+                                                        role="dialog" aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi
+                                                                        Tindakan Penghapusan!</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Apakah anda yakin ingin menghapus Data Siswa {{ $item->siswa_nama }} ?
+                                                                    </p>
+                                                                </div>
+                                                                <div class="modal-footer">
+
+                                                                    <form action="{{ route('hapus-siswa', $item->id) }}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="logoutrequest">
+                                                                        <button type="button" class="btn btn-warning"
+                                                                            data-dismiss="modal">Batalkan</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-danger">Hapus</button>
+                                                                    </form>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- END MODAL HAPUS --}}
+
+
                                                 </td>
                                             </tr>
                                         @endforeach
