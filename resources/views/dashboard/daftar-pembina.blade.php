@@ -58,7 +58,11 @@
                                                 <td>{{ $item->pembina_jabatan_organik }}</td>
                                                 <td>{{ $item->pembina_jabatan_kegiatan }}</td>
                                                 <td>{{ $item->pembina_telepon }}</td>
-                                                <td>{{ $item->eskul->eskul_nama }}</td>
+                                                @if ($item->eskul_id == NULL)
+                                                    <td>Belum Terdaftar</td>
+                                                @else
+                                                    <td>{{ $item->eskul->eskul_nama }}</td>
+                                                @endif
                                                 <td>
                                                     <div class="row">
                                                         <div
