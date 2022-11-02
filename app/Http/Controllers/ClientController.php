@@ -59,6 +59,19 @@ class ClientController extends Controller
         ]);
     }
 
+    public function client_menu_daftar_eskul()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        $eskul = Eskul::all();
+        return view('client.client-menu-daftar-eskul', [
+            'users' => $users,
+            'siswa' => $siswa,
+            'eskul' => $eskul,
+        ]);
+    }
+
     public function client_daftar_jadwal()
     {
         $session_users = session('data_login');

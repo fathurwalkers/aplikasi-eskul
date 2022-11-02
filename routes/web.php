@@ -57,9 +57,15 @@ Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {
     Route::get('/client-lihat-jadwal/{id}', [ClientController::class, 'client_lihat_jadwal'])->name('client-lihat-jadwal');
 
     Route::get('/client-prestasi-eskul', [ClientController::class, 'client_prestasi_eskul'])->name('client-prestasi-eskul');
+
+    Route::get('/client-menu-daftar-eskul', [ClientController::class, 'client_menu_daftar_eskul'])->name('client-menu-daftar-eskul');
+
     Route::get('/client-prestasi-marching-band', [ClientController::class, 'client_prestasi_marching_band'])->name('client-prestasi-marching-band');
+
     Route::get('/client-prestasi-pramuka', [ClientController::class, 'client_prestasi_pramuka'])->name('client-prestasi-pramuka');
+
     Route::get('/client-prestasi-seni-rupa', [ClientController::class, 'client_prestasi_seni_rupa'])->name('client-prestasi-seni-rupa');
+
     Route::get('/client-prestasi-bahasa-inggris', [ClientController::class, 'client_prestasi_bahasa_inggris'])->name('client-prestasi-bahasa-inggris');
 });
 

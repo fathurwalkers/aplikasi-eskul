@@ -13,19 +13,23 @@
 
 @section('main-content')
     <div class="row row-cols-1  justify-content-center">
+
+        @if ($siswa->eskul_id == null)
         <div class="col-10 mb-4 btn shadow ">
-            <a href="{{ asset('assets/client') }}/daftarExtra.html">
+            <a href="{{ route('client-menu-daftar-eskul') }}">
                 <div class="card border-primary ">
                     <div class="card-body text-left">
                         <button type="button" class="btn btn-primary btn-sm">
                             <i class="bi bi-box-arrow-in-right" style="font-size: 1rem; display:inline-block;"></i>
                         </button>
                         <h6 class="card-title font-weight-bold"
-                            style="font-size: 1rem; display: inline-block; margin-left: 40px;"> Mendaftar</h6>
+                            style="font-size: 1rem; display: inline-block; margin-left: 40px;">Mendaftar</h6>
                     </div>
                 </div>
             </a>
         </div>
+        @endif
+
         <div class="col-10 mb-4 btn shadow">
             <a href="{{ route('client-daftar-jadwal') }}">
                 <div class="card border-warning  ">
