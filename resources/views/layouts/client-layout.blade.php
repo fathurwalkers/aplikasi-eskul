@@ -66,9 +66,9 @@
     <div class="container-fluid bg-primary fixed-bottom">
           <ul>
             <li><a href="{{ route('client') }}"><i class="bi bi-house-fill text-light "></i></a>Home</li>
-            <li><a href="jadwal.html"><i class="bi bi-list-stars text-light"></i></a>Jadwal</li>
-            <li><a href="absen.html"><i class="bi bi-person-check text-light "></i></a>Absen</li>
-            <li><a href="profil.html"><i class="bi bi-person-circle text-light"></i></a>profil</li>
+            <li><a href="{{ route('client-daftar-jadwal') }}"><i class="bi bi-list-stars text-light"></i></a>Jadwal</li>
+            <li><a href="{{ asset('assets/client') }}/absen.html"><i class="bi bi-person-check text-light "></i></a>Absen</li>
+            <li><a href="{{ route('client-profile') }}"><i class="bi bi-person-circle text-light"></i></a>profil</li>
           </ul>
       </div>
     </footer>

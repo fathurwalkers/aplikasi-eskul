@@ -33,7 +33,7 @@
     <!-- konten -->
     <div class="container">
         <div class="tombol-keluar mt-2">
-            <a href="siswa.html">
+            <a href="{{ route('client') }}">
                 <i class="bi bi-arrow-left-circle" style="font-size: 2rem;"></i>
             </a>
         </div>

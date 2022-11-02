@@ -14,7 +14,7 @@
 @section('main-content')
     <div class="row row-cols-1  justify-content-center">
         <div class="col-10 mb-4 btn shadow ">
-            <a href="daftarExtra.html">
+            <a href="{{ asset('assets/client') }}/daftarExtra.html">
                 <div class="card border-primary ">
                     <div class="card-body text-left">
                         <button type="button" class="btn btn-primary btn-sm">
@@ -79,7 +79,7 @@
             </a>
         </div> --}}
         <div class="col-10 mb-4 btn shadow">
-            <a href="nilaiSiswa.html">
+            <a href="{{ asset('assets/client') }}/nilaiSiswa.html">
                 <div class="card border-warning ">
                     <div class="card-body text-left">
                         <button type="button" class="btn btn-warning btn-sm">
@@ -92,7 +92,7 @@
             </a>
         </div>
         <div class="col-10 mb-1 btn shadow">
-            <a href="absen.html">
+            <a href="{{ asset('assets/client') }}/absen.html">
                 <div class="card border-primary ">
                     <div class="card-body text-left">
                         <button type="button" class="btn btn-primary btn-sm">
