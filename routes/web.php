@@ -11,7 +11,7 @@ use App\Http\Controllers\PembinaController;
 use App\Http\Controllers\JadwalController;
 
 Route::get('/', function () {
-    return redirect('/dashboard');
+    return redirect('/login-admin');
 });
 
 Route::get('/login', [BackController::class, 'login_client'])->name('login-client');
