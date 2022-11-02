@@ -69,7 +69,13 @@
                                                 <td>{{ $item->siswa_telepon }}</td>
                                                 <td>{{ $item->siswa_status }}</td>
                                                 <td>{{ $item->kelas->kelas_nama }}</td>
-                                                <td>{{ $item->eskul->eskul_nama }}</td>
+
+                                                @if ($item->eskul_id == NULL)
+                                                    <td>Belum Terdaftar</td>
+                                                @else
+                                                    <td>{{ $item->eskul->eskul_nama }}</td>
+                                                @endif
+
                                                 <td>
                                                     <div class="row">
                                                         <div
