@@ -80,7 +80,7 @@ class GenerateController extends Controller
                     'login_id' => $save_login->id,
                     'kelas_id' => $kelas_random["id"],
                     // 'kelas_id' => $itemsss->id,
-                    'eskul_id' => $eskul_random["id"],
+                    'eskul_id' => null,
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);
