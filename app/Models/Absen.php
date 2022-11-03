@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Eskul;
+// use App\Models\Eskul;
 use App\Models\Siswa;
 use App\Models\Jadwal;
 
@@ -25,8 +25,8 @@ class Absen extends Model
         return $this->belongsTo(Jadwal::class);
     }
 
-    public function eskul()
-    {
-        return $this->belongsTo(Eskul::class);
-    }
+    // public function eskul()
+    // {
+    //     return $this->belongsTo(Eskul::class);
+    // }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Pembina;
 use App\Models\Siswa;
 use App\Models\Jadwal;
-use App\Models\Absen;
+// use App\Models\Absen;
 
 class Eskul extends Model
 {
@@ -31,8 +31,8 @@ class Eskul extends Model
         return $this->hasMany(Jadwal::class);
     }
 
-    public function absen()
-    {
-        return $this->hasMany(Absen::class);
-    }
+    // public function absen()
+    // {
+    //     return $this->hasMany(Absen::class);
+    // }
 }
