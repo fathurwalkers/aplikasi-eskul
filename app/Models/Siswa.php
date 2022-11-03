@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Kelas;
 use App\Models\Login;
 use App\Models\Eskul;
+use App\Models\Absen;
 
 class Siswa extends Model
 {
@@ -28,5 +29,10 @@ class Siswa extends Model
     public function eskul()
     {
         return $this->belongsTo(Eskul::class);
+    }
+
+    public function absen()
+    {
+        return $this->hasMany(Absen::class);
     }
 }

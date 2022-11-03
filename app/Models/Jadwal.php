@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Eskul;
+use App\Models\Absen;
 
 class Jadwal extends Model
 {
@@ -16,5 +17,10 @@ class Jadwal extends Model
     public function eskul()
     {
         return $this->belongsTo(Eskul::class);
+    }
+
+    public function absen()
+    {
+        return $this->hasMany(Absen::class);
     }
 }
