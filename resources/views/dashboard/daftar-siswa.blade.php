@@ -81,7 +81,8 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button href="#"
+                                                            <button data-toggle="modal"
+                                                            data-target="#modallihat{{ $item->id }}"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat</button>
                                                             @if ($users->login_level == 'admin')
                                                                 <button data-toggle="modal"
@@ -93,6 +94,35 @@
                                                             @endif
                                                         </div>
                                                     </div>
+
+
+                                                    {{-- MODAL LIHAT --}}
+                                                    <div class="modal fade" id="modallihat{{ $item->id }}"
+                                                        tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                                        Data Siswa - {{ $item->siswa_nama }}
+                                                                    </h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Apakah anda yakin ingin menghapus Data Siswa
+                                                                        {{ $item->siswa_nama }} ?
+                                                                    </p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Batalkan</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- END MODAL LIHAT --}}
 
 
                                                     {{-- MODAL HAPUS --}}
@@ -148,7 +178,7 @@
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
-                                                                <form action="{{ route('post-ubah-siswa') }}" method="POST">
+                                                                <form action="{{ route('post-ubah-siswa', $item->id) }}" method="POST">
                                                                     @csrf
                                                                     <div class="modal-body">
 
