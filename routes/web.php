@@ -28,9 +28,11 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/siswa/daftar-siswa', [SiswaController::class, 'daftar_siswa'])->name('daftar-siswa');
     Route::post('/siswa/post-ubah-siswa/{id}', [SiswaController::class, 'post_ubah_siswa'])->name('post-ubah-siswa');
     Route::post('/siswa/hapus-siswa/{id}', [SiswaController::class, 'hapus_siswa'])->name('hapus-siswa');
+    Route::post('/siswa/tambah-siswa', [SiswaController::class, 'tambah_siswa'])->name('tambah-siswa');
 
     // PEMBINA ROUTE
     Route::get('/pembina/daftar-pembina', [PembinaController::class, 'daftar_pembina'])->name('daftar-pembina');
+    Route::post('/pembina/tambah-pembina', [PembinaController::class, 'tambah_pembina'])->name('tambah-pembina');
 
     // PEMBINA ROUTE
     Route::get('/akun/daftar-akun', [BackController::class, 'daftar_akun'])->name('daftar-akun');

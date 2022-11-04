@@ -27,12 +27,156 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <h4>
-                                <b>
-                                    Daftar Pembina
-                                </b>
-                            </h4>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <h4>
+                                    <b>
+                                        Daftar Pembina
+                                    </b>
+                                </h4>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
+                                <button type="button" class="btn btn-md btn-info" data-toggle="modal"
+                                    data-target="#modaltambah">
+                                    Tambah Pembina
+                                </button>
+                            </div>
+
+                            {{-- MODAL TAMBAH DATA SISWA --}}
+                            <div class="modal fade" id="modaltambah" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                Tambah Siswa
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('tambah-pembina') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-body">
+
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="pembina_nama">Nama Pembina</label>
+                                                            <input type="text" class="form-control" id="pembina_nama"
+                                                                aria-describedby="emailHelp" placeholder="" name="pembina_nama">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="pembina_nip">NIP</label>
+                                                            <input type="text" class="form-control" id="pembina_nip"
+                                                                aria-describedby="emailHelp" placeholder="" name="pembina_nip">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="pembina_telepon">No. HP / Telepon</label>
+                                                            <input type="text" class="form-control" id="pembina_telepon"
+                                                                aria-describedby="emailHelp" placeholder=""
+                                                                name="pembina_telepon">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="input-group-text" for="eskul_id">Kelas</label>
+                                                            <select class="form-control" id="eskul_id" name="eskul_id">
+                                                                @foreach ($eskul as $esc)
+                                                                    <option value="{{ $esc->id }}">{{ $esc->eskul_nama }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <img id="output_image" class="border border-1" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlFile1">Foto : </label>
+                                                            <input type="file" class="form-control-file"
+                                                                onchange="preview_image(event)" name="foto">
+                                                            <small class="form-text text-muted">Upload Pas Foto ekstensi
+                                                                .jpg</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="input-group-text" for="pembina_jeniskelamin">Jenis
+                                                                Kelamin</label>
+                                                            <select class="form-control" id="pembina_jeniskelamin"
+                                                                name="pembina_jeniskelamin">
+                                                                <option value="L">Laki-Laki</option>
+                                                                <option value="P">Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="pembina_alamat">Alamat</label>
+                                                            <input type="text" class="form-control" id="pembina_alamat"
+                                                                aria-describedby="emailHelp"
+                                                                placeholder="contoh : Jl. Bakti Abri" name="pembina_alamat">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="input-group-text" for="pembina_jabatan_organik">Jabatan Organik</label>
+                                                            <select class="form-control" id="pembina_jabatan_organik"
+                                                                name="pembina_jabatan_organik">
+                                                                <option value="Staff Wakasek Kesiswaaan">Staff Wakasek Kesiswaaan</option>
+                                                                <option value="Staff Sarana Prasana">Staff Sarana Prasana</option>
+                                                                <option value="Staff Kurikulum">Staff Kurikulum</option>
+                                                                <option value="Guru">Guru</option>
+                                                                <option value="GTT">GTT</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="input-group-text" for="pembina_jabatan_kegiatan">Jabatan Kegiatan</label>
+                                                            <select class="form-control" id="pembina_jabatan_kegiatan"
+                                                                name="pembina_jabatan_kegiatan">
+                                                                <option value="Pembina">Pembina</option>
+                                                                <option value="Panitia">Panitia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info"
+                                                    data-dismiss="modal">Batalkan</button>
+                                                <button type="submit" class="btn btn-success">Tambah</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
+
                         <hr />
                         <div class="row">
                             <div class="table-responsive">
@@ -58,7 +202,7 @@
                                                 <td>{{ $item->pembina_jabatan_organik }}</td>
                                                 <td>{{ $item->pembina_jabatan_kegiatan }}</td>
                                                 <td>{{ $item->pembina_telepon }}</td>
-                                                @if ($item->eskul_id == NULL)
+                                                @if ($item->eskul_id == null)
                                                     <td>Belum Terdaftar</td>
                                                 @else
                                                     <td>{{ $item->eskul->eskul_nama }}</td>
@@ -69,9 +213,11 @@
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
                                                             <button href="#"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat</button>
-                                                            @if ($users->login_level == "admin")
-                                                            <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button>
+                                                            @if ($users->login_level == 'admin')
+                                                                <button href="#"
+                                                                    class="btn btn-sm btn-success mr-1">Ubah</button>
+                                                                <button href="#"
+                                                                    class="btn btn-sm btn-danger">Hapus</button>
                                                             @endif
                                                         </div>
                                                     </div>

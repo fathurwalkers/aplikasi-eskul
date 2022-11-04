@@ -41,7 +41,7 @@
                                 </button>
                             </div>
 
-                            {{-- MODAL TAMBAH DATA JADWAL --}}
+                            {{-- MODAL TAMBAH DATA SISWA --}}
                             <div class="modal fade" id="modaltambah" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -54,7 +54,7 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form action="{{ route('tambah-siswa') }}" method="POST">
+                                        <form action="{{ route('tambah-siswa') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-body">
 
@@ -78,12 +78,38 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
                                                         <div class="form-group">
                                                             <label for="siswa_telepon">No. HP / Telepon</label>
                                                             <input type="text" class="form-control" id="siswa_telepon"
                                                                 aria-describedby="emailHelp"
                                                                 placeholder="" name="siswa_telepon">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="input-group-text" for="siswa_kelas">Kelas</label>
+                                                            <select class="form-control" id="siswa_kelas" name="siswa_kelas">
+                                                                @foreach ($kelas as $kel)
+                                                                    <option value="{{ $kel->id }}">{{ $kel->kelas_nama }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <img id="output_image" class="border border-1"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlFile1">Foto : </label>
+                                                            <input type="file" class="form-control-file" onchange="preview_image(event)" name="foto">
+                                                            <small class="form-text text-muted">Upload Pas Foto ekstensi .jpg</small>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -92,7 +118,7 @@
                                                     <div class="col-sm-6 col-md-6 col-lg-6">
                                                         <div class="form-group">
                                                             <label class="input-group-text" for="siswa_jeniskelamin">Jenis Kelamin</label>
-                                                            <select class="form-select" id="siswa_jeniskelamin" name="siswa_jeniskelamin">
+                                                            <select class="form-control" id="siswa_jeniskelamin" name="siswa_jeniskelamin">
                                                                 <option value="L">Laki-Laki</option>
                                                                 <option value="P">Perempuan</option>
                                                             </select>
@@ -334,5 +360,15 @@
         $(document).ready(function() {
             $('#example').DataTable();
         });
+    </script>
+    <script type='text/javascript'>
+        function preview_image(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                    var output = document.getElementById('output_image');
+                    output.src = reader.result;
+                }
+            reader.readAsDataURL(event.target.files[0]);
+        }
     </script>
 @endpush
