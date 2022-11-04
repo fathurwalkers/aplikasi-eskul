@@ -211,8 +211,9 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button href="#"
-                                                                class="btn btn-sm btn-primary mr-1">Lihat</button>
+                                                            <button data-toggle="modal"
+                                                            data-target="#modallihat{{ $item->id }}"
+                                                            class="btn btn-sm btn-primary mr-1">Lihat</button>
                                                             @if ($users->login_level == 'admin')
                                                                 <button href="#"
                                                                     class="btn btn-sm btn-success mr-1">Ubah</button>
@@ -223,6 +224,61 @@
                                                     </div>
                                                 </td>
                                             </tr>
+
+                                            {{-- MODAL LIHAT --}}
+                                            <div class="modal fade" id="modallihat{{ $item->id }}"
+                                                tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                                Data Siswa - {{ $item->siswa_nama }}
+                                                            </h5>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row border-1">
+                                                                <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
+                                                                    <img src="{{ asset('assets') }}/{{ $item->pembina_foto }}" alt="" width="150px">
+                                                                </div>
+                                                            </div>
+                                                            <br />
+                                                            <div class="row">
+                                                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                    <p>
+                                                                        Nama : {{ $item->pembina_nama }} <br>
+                                                                        NISN : {{ $item->pembina_nip }} <br>
+                                                                        Esktrakulikuler : {{ $item->eskul->eskul_nama }} <br>
+                                                                        Jabatan Organik : {{ $item->pembina_jabatan_organik }} <br>
+                                                                        Jabatan Kegiatan : {{ $item->pembina_jabatan_kegiatan }} <br>
+                                                                        Jenis Kelamin :
+                                                                        @switch($item->pembina_jeniskelamin)
+                                                                            @case("L")
+                                                                                Laki - Laki
+                                                                                @break
+                                                                            @case("P")
+                                                                                Perempuan
+                                                                                @break
+                                                                        @endswitch <br>
+                                                                        No. HP / Telepon : {{ $item->pembina_telepon }} <br>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-warning"
+                                                                data-dismiss="modal">Batalkan</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- END MODAL LIHAT --}}
+
+
                                         @endforeach
                                     </tbody>
                                 </table>

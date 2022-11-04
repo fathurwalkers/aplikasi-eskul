@@ -225,10 +225,32 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <p>
-                                                                        Nama : {{ $siswa->siswa_nama }} <br>
-                                                                        NISN : {{ $siswa->siswa_nisn }} <br>
-                                                                    </p>
+                                                                    <div class="row border-1">
+                                                                        <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
+                                                                            <img src="{{ asset('assets') }}/{{ $item->siswa_foto }}" alt="" width="150px">
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                            <p>
+                                                                                Nama : {{ $item->siswa_nama }} <br>
+                                                                                NISN : {{ $item->siswa_nisn }} <br>
+                                                                                NISN : {{ $item->kelas->kelas_nama }} <br>
+                                                                                Jenis Kelamin :
+                                                                                @switch($item->siswa_jeniskelamin)
+                                                                                    @case("L")
+                                                                                        Laki - Laki
+                                                                                        @break
+                                                                                    @case("P")
+                                                                                        Perempuan
+                                                                                        @break
+                                                                                @endswitch <br>
+                                                                                No. HP / Telepon : {{ $item->siswa_telepon }} <br>
+                                                                                Alamat : {{ $item->siswa_alamat }} <br>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-warning"
