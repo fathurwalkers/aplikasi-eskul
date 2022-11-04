@@ -105,7 +105,7 @@
             </a>
         </div>
         <div class="col-10 mb-1 btn shadow">
-            <a href="{{ asset('assets/client') }}/absen.html">
+            <a href="{{ route('client-absen') }}">
                 <div class="card border-primary ">
                     <div class="card-body text-left">
                         <button type="button" class="btn btn-primary btn-sm">
