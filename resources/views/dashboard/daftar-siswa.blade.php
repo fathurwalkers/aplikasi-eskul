@@ -225,8 +225,9 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <p>Apakah anda yakin ingin menghapus Data Siswa
-                                                                        {{ $item->siswa_nama }} ?
+                                                                    <p>
+                                                                        Nama : {{ $siswa->siswa_nama }} <br>
+                                                                        NISN : {{ $siswa->siswa_nisn }} <br>
                                                                     </p>
                                                                 </div>
                                                                 <div class="modal-footer">
