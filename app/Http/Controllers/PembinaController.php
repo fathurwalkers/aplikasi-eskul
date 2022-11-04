@@ -23,7 +23,7 @@ class PembinaController extends Controller
         $users = Login::find($session_users->id);
         $pembina = Pembina::all();
         $kelas = Kelas::all();
-        $kelas = Eskul::all();
+        $eskul = Eskul::all();
         return view('dashboard.daftar-pembina', [
             'users' => $users,
             'pembina' => $pembina,
@@ -44,17 +44,19 @@ class PembinaController extends Controller
             $gambar = $request->file('foto')->move(public_path('foto'), strtolower($randomNamaGambar));
         }
 
-        $siswa_nama = $request->siswa_nama;
-        $siswa_nisn = $request->siswa_nisn;
-        $siswa_telepon = $request->siswa_telepon;
-        $siswa_alamat = $request->siswa_alamat;
-        $siswa_jeniskelamin = $request->siswa_jeniskelamin;
-        $siswa_status = "AKTIF";
+        $pembina_nama = $request->pembina_nama;
+        $pembina_nip = $request->pembina_nip;
+        $pembina_telepon = $request->pembina_telepon;
+        $pembina_alamat = $request->pembina_alamat;
+        $pembina_jabatan_organik = $request->pembina_jabatan_organik;
+        $pembina_jabatan_kegiatan = $request->pembina_jabatan_kegiatan;
+        $pembina_jeniskelamin = $request->pembina_jeniskelamin;
+        $pembina_kode = strtoupper(Str::random(10));
 
         // GENERATE DATA LOGIN
         $login = new Login;
         $token = Str::random(16);
-        $level = "user";
+        $level = "pembina";
         $hashPassword = Hash::make('12345', [
             'rounds' => 12,
         ]);
@@ -63,11 +65,11 @@ class PembinaController extends Controller
         ]);
         $username = strtolower(Str::random(10));
         $save_login = $login->create([
-            'login_nama'        => $siswa_nama,
+            'login_nama'        => $pembina_nama,
             'login_username'    => $username,
             'login_password'    => $hashPassword,
             'login_email'       => $faker->email(),
-            'login_telepon'     => $siswa_telepon,
+            'login_telepon'     => $pembina_telepon,
             'login_token'       => $hashToken,
             'login_level'       => $level,
             'login_status'      => "verified",
@@ -77,34 +79,27 @@ class PembinaController extends Controller
         $save_login->save();
 
         $login_id = $save_login->id;
-        $kelas_id = $request->siswa_kelas;
+        $eskul_id = $request->eskul_id;
+        $eskul_find = Eskul::find($eskul_id);
 
-        // dump($siswa_nama);
-        // dump($siswa_nisn);
-        // dump($siswa_telepon);
-        // dump($siswa_alamat);
-        // dump($siswa_jeniskelamin);
-        // dump($siswa_status);
-        // dump($login_id);
-        // dump($kelas_id);
-        // die;
-
-        // GENERATE DATA SISWA
-        $save_siswa = $siswa->create([
-            'siswa_nama' => $siswa_nama,
-            'siswa_nisn' => $siswa_nisn,
-            'siswa_jeniskelamin' => $siswa_jeniskelamin,
-            'siswa_alamat' => $siswa_alamat,
-            'siswa_telepon' => $siswa_telepon,
-            'siswa_foto' => $gambar->getFileName(),
-            'siswa_status' => $siswa_status,
+        // GENERATE DATA Pembina
+        $save_pembina = $pembina->create([
+            'pembina_nama' => $pembina_nama,
+            'pembina_nip' => $pembina_nip,
+            'pembina_jeniskelamin' => $pembina_jeniskelamin,
+            'pembina_telepon' => $pembina_telepon,
+            'pembina_foto' => $gambar->getFileName(),
+            'pembina_status' => "AKTIF",
+            'pembina_jabatan_organik' => $pembina_jabatan_organik,
+            'pembina_jabatan_kegiatan' => $pembina_jabatan_kegiatan,
+            'pembina_kode' => $pembina_kode,
             'login_id' => $save_login->id,
-            'kelas_id' => $kelas_id,
-            'eskul_id' => NULL,
+            'eskul_id' => $eskul_find->id,
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        $save_siswa->save();
-        return redirect()->route('daftar-siswa')->with('status', 'Berhasil Menambah Data Siswa.');
+        $save_pembina->save();
+
+        return redirect()->route('daftar-pembina')->with('status', 'Berhasil Menambah Data Siswa.');
     }
 }

@@ -34,7 +34,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/pembina/daftar-pembina', [PembinaController::class, 'daftar_pembina'])->name('daftar-pembina');
     Route::post('/pembina/tambah-pembina', [PembinaController::class, 'tambah_pembina'])->name('tambah-pembina');
 
-    // PEMBINA ROUTE
+    // AKUN ROUTE
     Route::get('/akun/daftar-akun', [BackController::class, 'daftar_akun'])->name('daftar-akun');
 
     // JADWAL ROUTE
