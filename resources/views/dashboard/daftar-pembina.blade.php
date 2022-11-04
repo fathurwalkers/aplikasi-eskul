@@ -215,10 +215,12 @@
                                                             data-target="#modallihat{{ $item->id }}"
                                                             class="btn btn-sm btn-primary mr-1">Lihat</button>
                                                             @if ($users->login_level == 'admin')
-                                                                <button href="#"
-                                                                    class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                                <button href="#"
-                                                                    class="btn btn-sm btn-danger">Hapus</button>
+                                                                <button data-toggle="modal"
+                                                                data-target="#modalubahpembina{{ $item->id }}"
+                                                                class="btn btn-sm btn-success mr-1">Ubah</button>
+                                                                <button data-toggle="modal"
+                                                                data-target="#hapusModal{{ $item->id }}"
+                                                                class="btn btn-sm btn-danger">Hapus</button>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -277,6 +279,104 @@
                                                 </div>
                                             </div>
                                             {{-- END MODAL LIHAT --}}
+
+                                            {{-- MODAL HAPUS --}}
+                                            <div class="modal fade" id="hapusModal{{ $item->id }}"
+                                                tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                                Konfirmasi
+                                                                Tindakan Penghapusan!</h5>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Apakah anda yakin ingin menghapus Data Siswa
+                                                                {{ $item->pembina_nama }} ?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+
+                                                            <form action="{{ route('hapus-pembina', $item->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="logoutrequest">
+                                                                <button type="button" class="btn btn-warning"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Hapus</button>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- END MODAL HAPUS --}}
+
+
+                                            {{-- MODAL UBAH --}}
+                                            <div class="modal fade" id="modalubahpembina{{ $item->id }}"
+                                                tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                                Ubah Data Pembina
+                                                            </h5>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('post-ubah-pembina', $item->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <div class="modal-body">
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label for="pembina_nama">Nama</label>
+                                                                            <input type="text"
+                                                                                class="form-control"
+                                                                                id="pembina_nama"
+                                                                                aria-describedby="emailHelp"
+                                                                                name="pembina_nama"
+                                                                                value="{{ $item->pembina_nama }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label for="pembina_telepon">No.
+                                                                                Telepon</label>
+                                                                            <input type="text"
+                                                                                class="form-control"
+                                                                                id="pembina_telepon"
+                                                                                aria-describedby="emailHelp"
+                                                                                name="pembina_telepon"
+                                                                                value="{{ $item->pembina_telepon }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-info"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-success">Ubah</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- END MODAL UBAH --}}
 
 
                                         @endforeach

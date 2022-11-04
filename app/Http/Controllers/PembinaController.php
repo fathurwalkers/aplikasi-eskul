@@ -102,4 +102,41 @@ class PembinaController extends Controller
 
         return redirect()->route('daftar-pembina')->with('status', 'Berhasil Menambah Data Siswa.');
     }
+
+    public function hapus_pembina(Request $request, $id)
+    {
+        $pembina_id = $id;
+        $pembina = Pembina::find($pembina_id);
+        $pembina_nama = $pembina->pembina_nama;
+        $pembina_hapus = $pembina->forceDelete();
+        if ($pembina_hapus == true) {
+            $alert = "Data Pembina " . $pembina_nama . " telah berhasil dihapus.";
+            return redirect()->route('daftar-pembina')->with('status', $alert);
+        } else {
+            $alert = "Data Pembina " . $pembina_nama . " gagal dihapus.";
+            return redirect()->route('daftar-pembina')->with('status', $alert);
+        }
+    }
+
+    public function post_ubah_pembina(Request $request, $id)
+    {
+        $pembina_id = $id;
+        $pembina_nama = $request->pembina_nama;
+        $pembina_telepon = $request->pembina_telepon;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $pembina = Pembina::find($pembina_id);
+        $pembina_update = $pembina->update([
+            'pembina_nama' => $pembina_nama,
+            'pembina_telepon' => $pembina_telepon,
+            'updated_at' => now()
+        ]);
+        if ($pembina_update == true) {
+            $alert = "Data Pembina " . $pembina_nama . " telah berhasil diubah.";
+            return redirect()->route('daftar-pembina')->with('status', $alert);
+        } else {
+            $alert = "Data Pembina " . $pembina_nama . " gagal diubah.";
+            return redirect()->route('daftar-pembina')->with('status', $alert);
+        }
+    }
 }

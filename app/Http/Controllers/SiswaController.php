@@ -54,7 +54,7 @@ class SiswaController extends Controller
     public function hapus_siswa(Request $request, $id)
     {
         $siswa_id = $id;
-        $siswa = siswa::find($siswa_id);
+        $siswa = Siswa::find($siswa_id);
         $siswa_nama = $siswa->siswa_nama;
         $siswa_hapus = $siswa->forceDelete();
         if ($siswa_hapus == true) {
