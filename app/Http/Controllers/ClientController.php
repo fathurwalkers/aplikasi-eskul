@@ -98,6 +98,36 @@ class ClientController extends Controller
         ]);
     }
 
+    public function client_post_mendaftar_eskul(Request $request)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+
+        $siswa_nama = $request->siswa_nama;
+        $siswa_nisn = $request->siswa_nisn;
+        $siswa_telepon = $request->siswa_telepon;
+
+        $eskul_id = $request->eskul_id;
+        $siswa_id = $request->siswa_id;
+
+        $siswa = Siswa::find($siswa_id);
+        $eskul = Eskul::find($eskul_id);
+
+        $update_siswa = $siswa->update([
+            'siswa_nama' => $siswa_nama,
+            'siswa_nisn' => $siswa_nisn,
+            'siswa_telepon' => $siswa_telepon,
+            'eskul_id' => $eskul->id,
+            'updated_at' => now()
+        ]);
+
+        if ($update_siswa == true) {
+            return redirect()->route('client')->with('status', 'Berhasil mendaftarkan Ekstrakulikuler');
+        } else {
+            return redirect()->route('client')->with('status', 'Gagal mendaftarkan Ekstrakulikuler');
+        }
+    }
+
     public function client_daftar_jadwal()
     {
         $session_users = session('data_login');

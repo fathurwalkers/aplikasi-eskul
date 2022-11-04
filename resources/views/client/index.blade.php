@@ -3,8 +3,8 @@
 @push('css')
     <style>
         /* .container {
-            height: 800px!important;
-        } */
+                height: 800px!important;
+            } */
     </style>
 @endpush
 
@@ -12,22 +12,31 @@
 @endsection
 
 @section('main-content')
+    <div class="row mt-1 mb-1">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            @if (session('status'))
+                <div class="alert alert-info">
+                    {{ session('status') }}
+                </div>
+            @endif
+        </div>
+    </div>
     <div class="row row-cols-1  justify-content-center">
 
         @if ($siswa->eskul_id == null)
-        <div class="col-10 mb-4 btn shadow ">
-            <a href="{{ route('client-menu-daftar-eskul') }}">
-                <div class="card border-primary ">
-                    <div class="card-body text-left">
-                        <button type="button" class="btn btn-primary btn-sm">
-                            <i class="bi bi-box-arrow-in-right" style="font-size: 1rem; display:inline-block;"></i>
-                        </button>
-                        <h6 class="card-title font-weight-bold"
-                            style="font-size: 1rem; display: inline-block; margin-left: 40px;">Mendaftar</h6>
+            <div class="col-10 mb-4 btn shadow ">
+                <a href="{{ route('client-menu-daftar-eskul') }}">
+                    <div class="card border-primary ">
+                        <div class="card-body text-left">
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="bi bi-box-arrow-in-right" style="font-size: 1rem; display:inline-block;"></i>
+                            </button>
+                            <h6 class="card-title font-weight-bold"
+                                style="font-size: 1rem; display: inline-block; margin-left: 40px;">Mendaftar</h6>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
         @endif
 
         <div class="col-10 mb-4 btn shadow">
