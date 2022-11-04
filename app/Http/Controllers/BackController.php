@@ -106,6 +106,12 @@ class BackController extends Controller
                 $request->session()->flush();
                 return redirect()->route('login-client')->with('status', 'Anda telah logout!');
                 break;
+            case 'pembina':
+                $users = session('data_login');
+                $request->session()->forget(['data_login']);
+                $request->session()->flush();
+                return redirect()->route('login-client')->with('status', 'Anda telah logout!');
+                break;
         }
     }
 

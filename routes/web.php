@@ -47,6 +47,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     // ESKUL ROUTE
     Route::get('/eskul/daftar-eskul', [EskulController::class, 'daftar_eskul'])->name('daftar-eskul');
     Route::get('/eskul/lihat-eskul/{id}', [EskulController::class, 'lihat_eskul'])->name('lihat-eskul');
+    Route::post('/eskul/tambah-eskul', [EskulController::class, 'tambah_eskul'])->name('tambah-eskul');
 });
 
 Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {

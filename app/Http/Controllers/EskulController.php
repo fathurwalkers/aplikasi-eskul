@@ -41,4 +41,20 @@ class EskulController extends Controller
             'eskul' => $eskul,
         ]);
     }
+
+    public function tambah_eskul(Request $request)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $eskul_nama = $request->eskul_nama;
+        $eskul = new Eskul;
+        $save_eskul = $eskul->create([
+            'eskul_nama' => $eskul_nama,
+            'eskul_gambar' => "Sepak Bola.jpg",
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $save_eskul->save();
+        return redirect()->route('daftar-eskul')->with('status', 'Ekstrakulikuler berhasil ditambahkan');
+    }
 }

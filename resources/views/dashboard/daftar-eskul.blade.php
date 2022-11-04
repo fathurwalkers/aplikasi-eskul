@@ -27,12 +27,60 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <h4>
-                                <b>
-                                    Daftar Ekstrakulikuler
-                                </b>
-                            </h4>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <h4>
+                                    <b>
+                                        Daftar Ekstrakulikuler
+                                    </b>
+                                </h4>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
+                                <button type="button" class="btn btn-md btn-info" data-toggle="modal"
+                                    data-target="#modaltambah">
+                                    Tambah Ekstrakulikuler
+                                </button>
+                            </div>
                         </div>
+
+                        {{-- MODAL TAMBAH DATA JADWAL --}}
+                        <div class="modal fade" id="modaltambah" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabelLogout">
+                                            Tambah Ekstrakulikuler
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="{{ route('tambah-eskul') }}" method="POST">
+                                        @csrf
+                                        <div class="modal-body">
+
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="eskul_nama">Nama Ekstrakulikuler</label>
+                                                        <input type="text" class="form-control" id="eskul_nama"
+                                                            aria-describedby="emailHelp"
+                                                            placeholder="contoh : Olahraga Basket" name="eskul_nama">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-info"
+                                                data-dismiss="modal">Batalkan</button>
+                                            <button type="submit" class="btn btn-success">Tambah</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
                         <hr />
                         <div class="row">
                             <div class="table-responsive">
