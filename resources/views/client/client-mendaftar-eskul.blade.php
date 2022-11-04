@@ -11,22 +11,6 @@
 
 @section('main-content')
 
-    <div class="container mt-4">
-
-        <div class="row">
-            <div class="col-4">
-                Tanggal
-            </div>
-            <div class="col-1">
-                :
-            </div>
-            <div class="col-7">
-                <input type="date">
-            </div>
-        </div>
-
-    </div>
-
     <div class="container">
 
         <div class="container">

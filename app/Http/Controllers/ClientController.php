@@ -35,6 +35,18 @@ class ClientController extends Controller
         ]);
     }
 
+    public function client_absen()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        dd($siswa);
+        return view('client.client-absen', [
+            'users' => $users,
+            'siswa' => $siswa,
+        ]);
+    }
+
     public function client_profile()
     {
         $session_users = session('data_login');
