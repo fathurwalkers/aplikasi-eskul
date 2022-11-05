@@ -34,7 +34,6 @@
                             </div>
                         @endforeach
 
-
                         <div class="col-12 mb-5 shadow-sm">
                         </div>
                     </div>

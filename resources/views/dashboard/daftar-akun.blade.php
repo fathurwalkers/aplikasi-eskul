@@ -66,8 +66,8 @@
                                                             <button href="#"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat</button>
                                                             @if ($users->login_level == "admin")
-                                                            <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button>
+                                                            {{-- <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button> --}}
+                                                            {{-- <button href="#" class="btn btn-sm btn-danger">Hapus</button> --}}
                                                             @endif
                                                         </div>
                                                     </div>
