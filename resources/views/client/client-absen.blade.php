@@ -19,43 +19,22 @@
             <div class="card-body">
                 <div class="container">
                     <div class="row mt-4 justify-content-center">
-                        <div class="col-11 mb-5 shadow-sm">
-                            <div class="card border-primary mb-3">
-                                <div class="card-header border-primary card-title font-weight-bold">Marching Band</div>
-                                <div class="card-body text-primary">
-                                    <h5 class="card-title">Warji Hutagalung</h5>
-                                    <p class="card-text h6">latihan Mingguan</p>
-                                </div><a href="#" class="btn btn-success">Klik Untuk Absen</a>
-                            </div>
-                        </div>
-                        <div class="col-11 mb-5 shadow-sm">
-                            <div class="card border-primary mb-3">
-                                <div class="card-header border-primary card-title font-weight-bold">Pramuka</div>
-                                <div class="card-body text-primary">
-                                    <h5 class="card-title">Rudi Mustofa</h5>
-                                    <p class="card-text h6">Camping Mingguan</p>
-                                </div><a href="#" class="btn btn-success">Klik Untuk Absen</a>
-                            </div>
-                        </div>
-                        <div class="col-11 mb-5 shadow-sm">
-                            <div class="card border-primary mb-3">
-                                <div class="card-header border-primary card-title font-weight-bold">Seni Rupa</div>
-                                <div class="card-body text-primary">
-                                    <h5 class="card-title">Ina Kuswandari</h5>
-                                    <p class="card-text h6">Melukis...</p>
-                                </div><a href="#" class="btn btn-success">Klik Untuk Absen</a>
-                            </div>
-                        </div>
-                        <div class="col-11 mb-5 shadow-sm">
-                            <div class="card border-primary mb-3">
-                                <div class="card-header border-primary card-title font-weight-bold">Bahasa Inggris</div>
-                                <div class="card-body text-primary">
-                                    <h5 class="card-title">Rini Hariyah</h5>
-                                    <p class="card-text h6">Grammer</p>
+
+                        @foreach ($jadwal as $item)
+                            <div class="col-11 mb-5 shadow-sm">
+                                <div class="card border-primary mb-3">
+                                    <div class="card-header border-primary card-title font-weight-bold">
+                                        {{ $item->eskul->eskul_nama }}
+                                    </div>
+                                    <div class="card-body text-primary">
+                                        <h5 class="card-title">{{ $item->jadwal_tempat }}</h5>
+                                        <p class="card-text h6">{{ date("d, M Y", strtotime($item->jadwal_waktu)) }} ({{ date("H:i", strtotime($item->jadwal_waktu)) }})</p>
+                                    </div><a href="#" class="btn btn-success">Klik Untuk Absen</a>
                                 </div>
-                                <a href="#" class="btn btn-success">Klik Untuk Absen</a>
                             </div>
-                        </div>
+                        @endforeach
+
+
                         <div class="col-12 mb-5 shadow-sm">
                         </div>
                     </div>

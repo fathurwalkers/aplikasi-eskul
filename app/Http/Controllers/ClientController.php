@@ -40,9 +40,13 @@ class ClientController extends Controller
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
         $siswa = Siswa::where('login_id', $users->id)->first();
+        $eskul_id = $siswa->eskul_id;
+        $eskul = Eskul::find($eskul_id);
+        $jadwal = Jadwal::where('eskul_id', $eskul->id)->get();
         return view('client.client-absen', [
             'users' => $users,
             'siswa' => $siswa,
+            'jadwal' => $jadwal,
         ]);
     }
 
