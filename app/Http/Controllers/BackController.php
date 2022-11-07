@@ -57,8 +57,10 @@ class BackController extends Controller
 
     public function index()
     {
-        if($this->users == "pengguna"){
-            return redirect()->route('client-index')->with('status', 'Maaf anda tidak punya akses ke halaman ini.');
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        if($users->login_level == "user"){
+            return redirect()->route('client')->with('status', 'Maaf anda tidak punya akses ke halaman Administrator.');
         }
         $siswa = Siswa::all()->count();
         $pembina = Pembina::all()->count();

@@ -273,8 +273,6 @@ class GenerateController extends Controller
                 $save_jadwal->save();
             }
         }
-        $jadwal_all = Jadwal::all();
-        dd($jadwal_all);
     }
 
     public function generate_all()

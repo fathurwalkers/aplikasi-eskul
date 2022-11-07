@@ -29,7 +29,13 @@
                                     <div class="card-body text-primary">
                                         <h5 class="card-title">{{ $item->jadwal_tempat }}</h5>
                                         <p class="card-text h6">{{ date("d, M Y", strtotime($item->jadwal_waktu)) }} ({{ date("H:i", strtotime($item->jadwal_waktu)) }})</p>
-                                    </div><a href="#" class="btn btn-success">Klik Untuk Absen</a>
+                                    </div>
+                                    <form action="{{ route('client-cek-absen', $item->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success mb-3">
+                                            Klik Untuk Absen
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         @endforeach

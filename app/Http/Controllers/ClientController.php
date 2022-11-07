@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Absen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,6 +29,9 @@ class ClientController extends Controller
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
+        if($users->login_level == "admin"){
+            return redirect()->route('dashboard')->with('status', 'Maaf anda tidak punya akses ke Aplikasi Client.');
+        }
         $siswa = Siswa::where('login_id', $users->id)->first();
         return view('client.index', [
             'users' => $users,
@@ -41,6 +45,9 @@ class ClientController extends Controller
         $users = Login::find($session_users->id);
         $siswa = Siswa::where('login_id', $users->id)->first();
         $eskul_id = $siswa->eskul_id;
+        if ($eskul_id == NULL) {
+            return redirect()->route('client')->with('status', 'Maaf, anda belum mendaftar Ekstrakulikuler. silahkan lakukan pendaftaran anggota ekstrakulikuler terlebih dahulu untuk melakukan absensi jadwal ekstrakulikuler.');
+        }
         $eskul = Eskul::find($eskul_id);
         $jadwal = Jadwal::where('eskul_id', $eskul->id)->get();
         return view('client.client-absen', [
@@ -48,6 +55,28 @@ class ClientController extends Controller
             'siswa' => $siswa,
             'jadwal' => $jadwal,
         ]);
+    }
+
+    public function client_cek_absen(Request $request, $id)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        $jadwal_id = $id;
+        $jadwal = Jadwal::find($jadwal_id);
+        $absen = new Absen;
+        $save_absen = $absen->create([
+            'absen_status' => "HADIR",
+            'absen_waktu' => now(),
+            'absen_tanggal' => now(),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $save_absen->save();
+        $lihat_absen = Absen::all();
+        dump($save_absen);
+        dump($lihat_absen);
+        die;
     }
 
     public function client_profile()

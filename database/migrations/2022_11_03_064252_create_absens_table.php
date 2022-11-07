@@ -11,9 +11,9 @@ class CreateAbsensTable extends Migration
         Schema::create('absen', function (Blueprint $table) {
             $table->id();
 
-            $table->dateTime('absen_status')->nullable();
-            $table->string('absen_waktu')->nullable();
-            $table->text('absen_tanggal')->nullable();
+            $table->string('absen_status')->nullable();
+            $table->dateTime('absen_waktu')->nullable();
+            $table->dateTime('absen_tanggal')->nullable();
 
             $table->unsignedBigInteger('siswa_id')->nullable();
             $table->unsignedBigInteger('jadwal_id')->nullable();
