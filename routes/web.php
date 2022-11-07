@@ -58,6 +58,7 @@ Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {
     // CLIENT ROUTE
     Route::get('/', [ClientController::class, 'index'])->name('client');
     Route::get('/client-profile', [ClientController::class, 'client_profile'])->name('client-profile');
+    Route::post('/client-ubah-foto', [ClientController::class, 'client_ubah_foto'])->name('client-ubah-foto');
 
     Route::get('/client-absen', [ClientController::class, 'client_absen'])->name('client-absen');
     Route::post('/client-cek-absen/{id}', [ClientController::class, 'client_cek_absen'])->name('client-cek-absen');

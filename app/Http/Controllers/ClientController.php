@@ -39,6 +39,26 @@ class ClientController extends Controller
         ]);
     }
 
+    public function client_ubah_foto(Request $request)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        $gambar_cek = $request->file('foto');
+        $siswa_foto = $siswa->siswa_foto;
+        if ($gambar_cek == NULL) {
+            return redirect()->route('client')->with('status', 'Maaf anda tidak memasukkan foto apapun. silahkan lakukan kembali dengan memasukkan foto.');
+        } else {
+            $randomNamaGambar = Str::random(10) . '.jpg';
+            $gambar = $request->file('foto')->move(public_path('assets'), strtolower($randomNamaGambar));
+        }
+        $siswa_update = $siswa->update([
+            'siswa_foto' => $gambar->getFilename(),
+            'updated_at' => now()
+        ]);
+        return redirect()->route('client-profile');
+    }
+
     public function client_absen()
     {
         $session_users = session('data_login');
@@ -64,19 +84,22 @@ class ClientController extends Controller
         $siswa = Siswa::where('login_id', $users->id)->first();
         $jadwal_id = $id;
         $jadwal = Jadwal::find($jadwal_id);
+
+        $cek_absen = Absen::where('jadwal_id', $jadwal_id)->get()->count();
+        if ($cek_absen >= 1) {
+            return redirect()->route('client-absen')->with('status', 'GAGAL : Anda Telah melakukan Absen dengan Jadwal sebelumnya.');
+        }
         $absen = new Absen;
         $save_absen = $absen->create([
             'absen_status' => "HADIR",
             'absen_waktu' => now(),
             'absen_tanggal' => now(),
+            'siswa_id' => $siswa->id,
+            'jadwal_id' => $jadwal->id,
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        $save_absen->save();
-        $lihat_absen = Absen::all();
-        dump($save_absen);
-        dump($lihat_absen);
-        die;
+        return redirect()->route('client-absen')->with('status', 'Berhasil melakukan absensi');
     }
 
     public function client_profile()
