@@ -115,16 +115,6 @@ class SiswaController extends Controller
         $login_id = $save_login->id;
         $kelas_id = $request->siswa_kelas;
 
-        // dump($siswa_nama);
-        // dump($siswa_nisn);
-        // dump($siswa_telepon);
-        // dump($siswa_alamat);
-        // dump($siswa_jeniskelamin);
-        // dump($siswa_status);
-        // dump($login_id);
-        // dump($kelas_id);
-        // die;
-
         // GENERATE DATA SISWA
         $save_siswa = $siswa->create([
             'siswa_nama' => $siswa_nama,

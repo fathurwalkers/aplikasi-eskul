@@ -236,7 +236,7 @@
                                                                             <p>
                                                                                 Nama : {{ $item->siswa_nama }} <br>
                                                                                 NISN : {{ $item->siswa_nisn }} <br>
-                                                                                NISN : {{ $item->kelas->kelas_nama }} <br>
+                                                                                Kelas : {{ $item->kelas->kelas_nama }} <br>
                                                                                 Jenis Kelamin :
                                                                                 @switch($item->siswa_jeniskelamin)
                                                                                     @case("L")
