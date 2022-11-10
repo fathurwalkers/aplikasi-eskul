@@ -5,7 +5,7 @@
         <a href="{{ route('client') }}">
             <i class="bi bi-arrow-left-circle" style="font-size: 2rem; margin-right: 30px;"></i>
         </a>
-        <h5 style="display: inline-block;">Absensi</h5>
+        <h5 style="display: inline-block;">Daftar Hadir</h5>
     </div>
 @endsection
 

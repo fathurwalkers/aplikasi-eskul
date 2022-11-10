@@ -85,6 +85,7 @@ Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');
 Route::get('/generate-siswa', [GenerateController::class, 'generate_siswa'])->name('generate-siswa');
+Route::get('/generate-siswa-perkelas', [GenerateController::class, 'generate_siswa_perkelas'])->name('generate-siswa-perkelas');
 Route::get('/generate-default-siswa', [GenerateController::class, 'generate_default_siswa'])->name('generate-default-siswa');
 Route::get('/generate-jadwal', [GenerateController::class, 'generate_jadwal'])->name('generate-jadwal');
 Route::get('/generate-pembina', [GenerateController::class, 'generate_pembina'])->name('generate-pembina');
