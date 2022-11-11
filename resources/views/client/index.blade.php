@@ -112,7 +112,7 @@
                             <i class="bi bi-person-check" style="font-size: 1rem; display:inline-block;"></i>
                         </button>
                         <h6 class="card-title font-weight-bold text-primary"
-                            style="font-size: 1rem; display: inline-block; margin-left: 40px;">Absen</h6>
+                            style="font-size: 1rem; display: inline-block; margin-left: 40px;">Daftar Hadir</h6>
                     </div>
                 </div>
             </a>

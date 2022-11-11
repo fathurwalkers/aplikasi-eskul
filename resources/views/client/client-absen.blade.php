@@ -24,7 +24,7 @@
     <div class="container">
         <div class="card text-center mb-5 shadow-sm mt-4">
             <div class="card-header">
-                Jadwal Absensi
+                Jadwal Daftar Hadir
             </div>
             <div class="card-body">
                 <div class="container">
@@ -44,7 +44,7 @@
                                     <form action="{{ route('client-cek-absen', $item->id) }}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-success mb-3">
-                                            Klik Untuk Absen
+                                            Klik Untuk Daftar Hadir
                                         </button>
                                     </form>
                                 </div>
