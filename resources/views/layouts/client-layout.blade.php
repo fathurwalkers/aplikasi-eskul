@@ -37,8 +37,8 @@
     <nav class="navbar navbar-dark bg-primary shadow mb-5 fixed-top" style="height:85px;">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="{{ asset('assets/client') }}/images/logosmada.png" width="45" height="45" class="d-inline-block align-top" alt=""/>
-          <h6 style=" font: size 15px; display: inline;">Extraculicullar</h6>
+          <img src="{{ asset('assets') }}/Logo-Tut-Wuri.png" width="45" height="45" class="d-inline-block align-top mr-1" alt=""/>
+          <h6 style=" font: size 15px; display: inline; my-auto"> Ekstrakulikuler</h6>
         </a>
         <span class="navbar-text" style="margin-left: auto; font-size: 10px;">
             {{ $users->login_nama }}

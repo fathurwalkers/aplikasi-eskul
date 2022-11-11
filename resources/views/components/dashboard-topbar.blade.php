@@ -3,7 +3,12 @@
         <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
             <i class="fa fa-bars"></i>
         </button>
-
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <img class="img-profile rounded-circle mr-1"
+                        src="{{ asset('assets') }}/Logo-Tut-Wuri.png" style="max-width: 40px">
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h5 class="my-auto ml-2 text-white">
