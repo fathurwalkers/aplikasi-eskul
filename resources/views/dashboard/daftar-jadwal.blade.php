@@ -151,7 +151,7 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button onclick="location.href = '#';"
+                                                            <button onclick="location.href = '{{ route('lihat-absen', $item->id) }}';"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat Absen</button>
                                                             @if ($users->login_level == 'admin')
                                                                 <button href="#"
