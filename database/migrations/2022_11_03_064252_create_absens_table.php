@@ -19,7 +19,7 @@ class CreateAbsensTable extends Migration
             $table->unsignedBigInteger('jadwal_id')->nullable();
 
             $table->foreign('siswa_id')->references('id')->on('siswa');
-            $table->foreign('jadwal_id')->references('id')->on('jadwal');
+            $table->foreign('jadwal_id')->references('id')->on('jadwal')->onDelete('cascade');
 
             $table->timestamps();
         });

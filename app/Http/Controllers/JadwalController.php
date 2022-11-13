@@ -82,6 +82,13 @@ class JadwalController extends Controller
     {
         $jadwal_id = $id;
         $jadwal = Jadwal::find($jadwal_id);
+        $absen = Absen::where('jadwal_id', $jadwal->id)->get();
+
+        foreach ($absen as $item) {
+            $f_absen = Absen::find($item->id);
+            $h_absen = $f_absen->forceDelete();
+        }
+
         $jadwal_tempat = $jadwal->jadwal_tempat;
         $jadwal_eskul = $jadwal->eskul->eskul_nama;
         $jadwal_hapus = $jadwal->forceDelete();
