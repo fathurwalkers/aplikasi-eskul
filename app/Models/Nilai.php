@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Siswa;
 
 class Nilai extends Model
 {
@@ -11,4 +12,9 @@ class Nilai extends Model
     protected $table = "nilai";
     protected $guarded = [];
     protected $primaryKey = "id";
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class);
+    }
 }

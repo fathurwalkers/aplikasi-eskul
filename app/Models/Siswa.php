@@ -8,6 +8,7 @@ use App\Models\Kelas;
 use App\Models\Login;
 use App\Models\Eskul;
 use App\Models\Absen;
+use App\Models\Nilai;
 
 class Siswa extends Model
 {
@@ -34,5 +35,10 @@ class Siswa extends Model
     public function absen()
     {
         return $this->hasMany(Absen::class);
+    }
+
+    public function nilai()
+    {
+        return $this->hasMany(Nilai::class);
     }
 }
