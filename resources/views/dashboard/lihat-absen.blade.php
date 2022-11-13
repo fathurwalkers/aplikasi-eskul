@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title', 'Dashboard - Daftar Siswa')
+@section('title', 'Dashboard - Daftar Hadir')
 
 @push('css')
     <link href="{{ asset('datatables') }}/datatables.min.css" rel="stylesheet">
 @endpush
 
-@section('content-title', 'Dashboard - Daftar Siswa')
+@section('content-title', 'Dashboard - Daftar Hadir')
 
 {{-- ------------------- main content ------------------- --}}
 @section('main-content')
@@ -29,7 +29,7 @@
                         <div class="row">
                             <h4>
                                 <b>
-                                    Daftar Siswa - Eskul ({{ $eskul->eskul_nama }})
+                                    Daftar Hadir - {{ $jadwal->jadwal_tempat }}
                                 </b>
                             </h4>
                         </div>
@@ -41,15 +41,22 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama</th>
+                                            <th>Tempat</th>
+                                            <th>Status</th>
+                                            <th>Waktu</th>
+                                            <th>Tanggal</th>
                                             {{-- <th>Kelola</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($siswa as $item)
+                                        @foreach ($absen as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td>{{ $item->siswa_nama }}</td>
-                                                <td>{{ $item->siswa_nisn }}</td>
+                                                <td>{{ $item->siswa->siswa_nama }}</td>
+                                                <td>{{ $item->jadwal->jadwal_tempat }}</td>
+                                                <td>{{ $item->absen_status }}</td>
+                                                <td>{{ date("H:i", strtotime($absen_waktu)) }}</td>
+                                                <td>{{ date("d-M-Y", strtotime($absen_tanggal)) }}</td>
                                                 {{-- <td>
                                                     <div class="row">
                                                         <div

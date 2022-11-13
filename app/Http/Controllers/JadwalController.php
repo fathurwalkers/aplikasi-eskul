@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Absen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -40,12 +39,10 @@ class JadwalController extends Controller
         $users = Login::find($session_users->id);
         $jadwal = Jadwal::find($jadwal_id);
         $absen = Absen::where('jadwal_id', $jadwal->id)->get();
-        dump($jadwal);
-        dump($absen);
-        die;
-        return view('dashboard.daftar-jadwal', [
+        return view('dashboard.lihat-absen', [
             'users' => $users,
             'jadwal' => $jadwal,
+            'absen' => $absen,
         ]);
     }
 
