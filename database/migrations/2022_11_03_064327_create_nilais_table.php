@@ -17,8 +17,10 @@ class CreateNilaisTable extends Migration
             $table->string('nilai_grade')->nullable();
 
             $table->unsignedBigInteger('siswa_id')->nullable();
+            $table->unsignedBigInteger('eskul_id')->nullable();
 
             $table->foreign('siswa_id')->references('id')->on('siswa');
+            $table->foreign('eskul_id')->references('id')->on('eskul');
 
             $table->timestamps();
         });

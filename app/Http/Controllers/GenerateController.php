@@ -350,6 +350,12 @@ class GenerateController extends Controller
         // }
     }
 
+    public function generate_nilai()
+    {
+        $faker                  = Faker::create('id_ID');
+        $siswa = Siswa::all();
+    }
+
     public function generate_all()
     {
         $this->generate_siswa();

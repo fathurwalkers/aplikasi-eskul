@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Siswa;
+use App\Models\Eskul;
 
 class Nilai extends Model
 {
@@ -16,5 +17,10 @@ class Nilai extends Model
     public function siswa()
     {
         return $this->belongsTo(Siswa::class);
+    }
+
+    public function eskul()
+    {
+        return $this->belongsTo(Eskul::class);
     }
 }
