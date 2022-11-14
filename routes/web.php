@@ -9,6 +9,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PembinaController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\NilaiController;
 
 Route::get('/', function () {
     return redirect('/login-admin');
@@ -48,6 +49,9 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     // KELAS ROUTE
     Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');
     Route::get('/kelas/lihat-kelas/{id}', [KelasController::class, 'lihat_kelas'])->name('lihat-kelas');
+
+    // NILAI ROUTE
+    Route::get('/nilai/daftar-nilai/{id}', [NilaiController::class, 'daftar_nilai'])->name('daftar-nilai');
 
     // ESKUL ROUTE
     Route::get('/eskul/daftar-eskul', [EskulController::class, 'daftar_eskul'])->name('daftar-eskul');

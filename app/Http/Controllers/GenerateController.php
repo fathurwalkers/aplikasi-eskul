@@ -354,6 +354,10 @@ class GenerateController extends Controller
     {
         $faker                  = Faker::create('id_ID');
         $siswa = Siswa::all();
+
+        foreach ($siswa as $item) {
+            $nilai = new Nilai;
+        }
     }
 
     public function generate_all()
