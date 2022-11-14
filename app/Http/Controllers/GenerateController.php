@@ -15,6 +15,7 @@ use App\Models\Pembina;
 use App\Models\Siswa;
 use App\Models\Jadwal;
 use App\Models\Kelas;
+use App\Models\Nilai;
 
 class GenerateController extends Controller
 {
@@ -357,6 +358,28 @@ class GenerateController extends Controller
 
         foreach ($siswa as $item) {
             $nilai = new Nilai;
+            $eskul = Eskul::find($item->eskul_id);
+
+            $array_grade = [
+                'A', 'B', 'C', 'D', 'E'
+            ];
+
+            $nilai_absen = $faker->numberBetween(20,99);
+            $nilai_prestasi = $faker->numberBetween(20,99);
+            $nilai_total = $faker->numberBetween(20,99);
+            $nilai_grade = Arr::random($array_grade);
+
+            $save_nilai = $nilai->create([
+                'nilai_absen' => $nilai_absen,
+                'nilai_prestasi' => $nilai_prestasi,
+                'nilai_total' => $nilai_total,
+                'nilai_grade' => $nilai_grade,
+                'siswa_id' => $item->id,
+                'eskul_id' => $eskul->id,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $save_nilai->save();
         }
     }
 

@@ -94,3 +94,4 @@ Route::get('/generate-siswa-perkelas', [GenerateController::class, 'generate_sis
 Route::get('/generate-default-siswa', [GenerateController::class, 'generate_default_siswa'])->name('generate-default-siswa');
 Route::get('/generate-jadwal', [GenerateController::class, 'generate_jadwal'])->name('generate-jadwal');
 Route::get('/generate-pembina', [GenerateController::class, 'generate_pembina'])->name('generate-pembina');
+Route::get('/generate-nilai', [GenerateController::class, 'generate_nilai'])->name('generate-nilai');

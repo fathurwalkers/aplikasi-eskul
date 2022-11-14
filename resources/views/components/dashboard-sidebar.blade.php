@@ -74,7 +74,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Kelola Ekstrakurikuler</h6>
                     <a class="collapse-item" href="{{ route('daftar-eskul') }}">Daftar Ekstrakurikuler</a>
-                    <a class="collapse-item" href="{{ route('daftar-nilai') }}">Daftar Nilai</a>
                     {{-- <a class="collapse-item" href="#">Tambah Ekstrakurikuler</a> --}}
                 </div>
             </div>
