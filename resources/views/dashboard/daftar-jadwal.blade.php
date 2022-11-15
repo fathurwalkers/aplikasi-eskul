@@ -98,16 +98,14 @@
                                                     <div class="form-group">
                                                         <label for="exampleFormControlTextarea1">Tanggal</label>
                                                         <input type="date" class="form-control" id="exampleInputEmail1"
-                                                            aria-describedby="emailHelp"
-                                                             name="jadwal_tanggal">
+                                                            aria-describedby="emailHelp" name="jadwal_tanggal">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                                     <div class="form-group">
                                                         <label for="exampleFormControlTextarea1">Waktu</label>
                                                         <input type="time" class="form-control" id="exampleInputEmail1"
-                                                            aria-describedby="emailHelp"
-                                                             name="jadwal_waktu">
+                                                            aria-describedby="emailHelp" name="jadwal_waktu">
                                                     </div>
                                                 </div>
                                             </div>
@@ -151,11 +149,13 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button onclick="location.href = '{{ route('lihat-absen', $item->id) }}';"
+                                                            <button
+                                                                onclick="location.href = '{{ route('lihat-absen', $item->id) }}';"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat Absen</button>
                                                             @if ($users->login_level == 'admin')
                                                                 <button href="#"
-                                                                    class="btn btn-sm btn-success mr-1">Ubah</button>
+                                                                    class="btn btn-sm btn-success mr-1" data-toggle="modal"
+                                                                    data-target="#modalubah{{ $item->id }}">Ubah</button>
                                                                 <button href="#" class="btn btn-sm btn-danger"
                                                                     data-toggle="modal"
                                                                     data-target="#hapusModal{{ $item->id }}">Hapus</button>
@@ -167,11 +167,13 @@
 
                                             {{-- MODAL HAPUS  --}}
                                             <div class="modal fade" id="hapusModal{{ $item->id }}" tabindex="-1"
-                                                role="dialog" aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                role="dialog" aria-labelledby="exampleModalLabelLogout"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                                Konfirmasi
                                                                 Tindakan Penghapusan!</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
@@ -200,6 +202,112 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            {{-- END MODAL HAPUS --}}
+
+                                            {{-- MODAL UBAH JADWAL --}}
+                                            <div class="modal fade" id="modalubah{{ $item->id }}" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                                Ubah Jadwal
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('ubah-jadwal', $item->id) }}" method="POST">
+                                                            @csrf
+                                                            <div class="modal-body">
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputEmail1">Tempat
+                                                                                Kegiatan</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="exampleInputEmail1"
+                                                                                aria-describedby="emailHelp"
+                                                                                placeholder="contoh : Gedung A SMADA"
+                                                                                name="jadwal_tempat" value="{{ $item->jadwal_tempat }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label
+                                                                                for="exampleFormControlSelect1">Ekstrakulikuler</label>
+                                                                            <select class="form-control"
+                                                                                id="exampleFormControlSelect1"
+                                                                                name="eskul_id" value="{{ $item->eskul_id }}">
+                                                                                <option default value="{{ $item->eskul_id }}">{{ $item->eskul->eskul_nama }}</option>
+                                                                                @foreach ($eskul as $j)
+                                                                                    <option value="{{ $j->id }}">
+                                                                                        {{ $j->eskul_nama }}
+                                                                                    </option>
+                                                                                @endforeach
+
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="form-group">
+                                                                            <label
+                                                                                for="exampleFormControlTextarea1">Keterangan</label>
+                                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="jadwal_keterangan"></textarea value="{{ $item->jadwal_keterangan }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label
+                                                                                for="exampleFormControlTextarea1">Tanggal</label>
+                                                                            <input type="date" class="form-control"
+                                                                                id="exampleInputEmail1"
+                                                                                aria-describedby="emailHelp"
+                                                                                name="jadwal_tanggal" value="{{ $item->jadwal_tanggal }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label
+                                                                                for="exampleFormControlTextarea1">Waktu</label>
+                                                                            <input type="time" class="form-control"
+                                                                                id="exampleInputEmail1"
+                                                                                aria-describedby="emailHelp"
+                                                                                name="jadwal_waktu" value="{{ $item->jadwal_waktu }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <p>
+                                                                            <span style="color:red;"> NOTE </span> : Biarkan kosong pada Tanggal dan Waktu jika tanggal dan waktu tidak diubah, sebaliknya anda harus mengganti kedua tanggal dan waktu untuk mengubah data jadwal.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-info"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-success">Tambah</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- END MODAL UBAH --}}
+
+
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -15,6 +15,7 @@ use App\Models\Absensi;
 use App\Models\Jadwal;
 use App\Models\Siswa;
 use App\Models\Kelas;
+use App\Models\Nilai;
 
 class ClientController extends Controller
 {
@@ -57,6 +58,22 @@ class ClientController extends Controller
             'updated_at' => now()
         ]);
         return redirect()->route('client-profile');
+    }
+
+    public function client_nilai()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::where('login_id', $users->id)->first();
+        $eskul = Eskul::find($siswa->eskul_id);
+        $nilai = Nilai::where('siswa_id', $siswa->id)->first();
+
+        return view('client.client-nilai', [
+            'users' => $users,
+            'siswa' => $siswa,
+            'eskul' => $eskul,
+            'nilai' => $nilai,
+        ]);
     }
 
     public function client_absen()

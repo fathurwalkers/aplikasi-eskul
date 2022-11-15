@@ -46,6 +46,50 @@ class JadwalController extends Controller
         ]);
     }
 
+    public function ubah_jadwal(Request $request, $id)
+    {
+        $jadwal_id = $id;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $jadwal = Jadwal::find($jadwal_id);
+
+        $eskul_id = $request->eskul_id;
+        $jadwal_tempat = $request->jadwal_tempat;
+        $jadwal_keterangan = $request->jadwal_keterangan;
+        $jadwal_tanggal = $request->jadwal_tanggal;
+        $jadwal_waktu = $request->jadwal_waktu;
+
+        if ($jadwal_tanggal !== NULL && $jadwal_waktu !== NULL) {
+            $jadwal_tanggal_waktu = Carbon::createFromFormat('d-m-Y H:i',Carbon::parse($request->jadwal_tanggal)->format('d-m-Y') . " " . $request->jadwal_waktu);
+            $eskul = Eskul::find($eskul_id);
+            $update_jadwal = $jadwal->update([
+                'jadwal_tempat' => $jadwal_tempat,
+                'jadwal_keterangan' => $jadwal_keterangan,
+                'jadwal_waktu' => $jadwal_tanggal_waktu,
+                'eskul_id' => $eskul->id,
+                'updated_at' => now()
+            ]);
+            return redirect()->route('daftar-jadwal')->with('status', 'Data Jadwal Berhasil diubah.');
+        } else {
+            $eskul = Eskul::find($eskul_id);
+            $update_jadwal = $jadwal->update([
+                'jadwal_tempat' => $jadwal_tempat,
+                'jadwal_keterangan' => $jadwal_keterangan,
+                'eskul_id' => $eskul->id,
+                'updated_at' => now()
+            ]);
+            return redirect()->route('daftar-jadwal')->with('status', 'Data Jadwal Berhasil diubah.');
+        }
+
+        dump($jadwal_tempat);
+        dump($jadwal_keterangan);
+        dump($eskul_id);
+        dump($jadwal_tanggal);
+        dump($jadwal_waktu);
+        die;
+
+    }
+
     public function tambah_jadwal(Request $request)
     {
         $session_users = session('data_login');

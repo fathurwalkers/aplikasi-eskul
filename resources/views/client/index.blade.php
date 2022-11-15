@@ -92,7 +92,7 @@
             </a>
         </div> --}}
         <div class="col-10 mb-4 btn shadow">
-            <a href="{{ asset('assets/client') }}/nilaiSiswa.html">
+            <a href="{{ route('client-nilai') }}">
                 <div class="card border-warning ">
                     <div class="card-body text-left">
                         <button type="button" class="btn btn-warning btn-sm">

@@ -43,6 +43,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     // JADWAL ROUTE
     Route::get('/jadwal/daftar-jadwal', [JadwalController::class, 'daftar_jadwal'])->name('daftar-jadwal');
     Route::post('/jadwal/tambah-jadwal', [JadwalController::class, 'tambah_jadwal'])->name('tambah-jadwal');
+    Route::post('/jadwal/ubah-jadwal/{id}', [JadwalController::class, 'ubah_jadwal'])->name('ubah-jadwal');
     Route::get('/jadwal/lihat-absen/{id}', [JadwalController::class, 'lihat_absen'])->name('lihat-absen');
     Route::post('/jadwal/hapus-jadwal/{id}', [JadwalController::class, 'hapus_jadwal'])->name('hapus-jadwal');
 
@@ -67,6 +68,8 @@ Route::group(['prefix' => '/client', 'middleware' => 'ceklogin'], function () {
 
     Route::get('/client-absen', [ClientController::class, 'client_absen'])->name('client-absen');
     Route::post('/client-cek-absen/{id}', [ClientController::class, 'client_cek_absen'])->name('client-cek-absen');
+
+    Route::get('/client-nilai', [ClientController::class, 'client_nilai'])->name('client-nilai');
 
     Route::get('/client-daftar-eskul', [ClientController::class, 'client_daftar_eskul'])->name('client-daftar-eskul');
     Route::get('/client-daftar-jadwal', [ClientController::class, 'client_daftar_jadwal'])->name('client-daftar-jadwal');
