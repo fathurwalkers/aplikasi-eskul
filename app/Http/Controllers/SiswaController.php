@@ -11,6 +11,7 @@ use Illuminate\Support\Arr;
 use App\Models\Login;
 use App\Models\Absensi;
 use App\Models\Eskul;
+use App\Models\Nilai;
 use App\Models\Siswa;
 use App\Models\Kelas;
 
@@ -55,6 +56,14 @@ class SiswaController extends Controller
     {
         $siswa_id = $id;
         $siswa = Siswa::find($siswa_id);
+
+        $nilai_siswa = Nilai::where('siswa_id', $siswa->id)->get();
+
+        foreach ($nilai_siswa as $itemsss) {
+            $f_nilai = Nilai::find($itemsss->id);
+            $h_nilai = $f_nilai->forceDelete();
+        }
+
         $siswa_nama = $siswa->siswa_nama;
         $login = Login::find($siswa->login_id);
         $siswa_hapus = $siswa->forceDelete();
